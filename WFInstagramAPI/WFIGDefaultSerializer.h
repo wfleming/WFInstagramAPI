@@ -24,6 +24,9 @@
 
 @end
 
+/**
+ * a serializer implementation that uses NSJSONSerialization
+ */
 @interface WFIGDefaultSerializer : NSObject <WFIGSerializer>
 
 @end

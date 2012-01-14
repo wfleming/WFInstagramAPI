@@ -64,33 +64,33 @@
 		BE88E24B14C1254A006910C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE88E24D14C1254A006910C5 /* WFInstagramAPITests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFInstagramAPITests.h; sourceTree = "<group>"; };
 		BE88E24E14C1254A006910C5 /* WFInstagramAPITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFInstagramAPITests.m; sourceTree = "<group>"; };
-		BE88E27814C1271B006910C5 /* WFIGAuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGAuthController.m; path = Sources/WFIGAuthController.m; sourceTree = "<group>"; };
-		BE88E27914C1271B006910C5 /* WFIGAuthDefaultInitialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGAuthDefaultInitialView.m; path = Sources/WFIGAuthDefaultInitialView.m; sourceTree = "<group>"; };
-		BE88E27A14C1271B006910C5 /* WFIGConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGConnection.m; path = Sources/WFIGConnection.m; sourceTree = "<group>"; };
-		BE88E27C14C1271B006910C5 /* WFIGDefaultSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGDefaultSerializer.m; path = Sources/WFIGDefaultSerializer.m; sourceTree = "<group>"; };
-		BE88E27D14C1271B006910C5 /* WFIGFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGFunctions.m; path = Sources/WFIGFunctions.m; sourceTree = "<group>"; };
-		BE88E27E14C1271B006910C5 /* WFIGImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGImageCache.m; path = Sources/WFIGImageCache.m; sourceTree = "<group>"; };
-		BE88E27F14C1271B006910C5 /* WFIGMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGMedia.m; path = Sources/WFIGMedia.m; sourceTree = "<group>"; };
-		BE88E28014C1271B006910C5 /* WFIGMediaCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGMediaCollection.m; path = Sources/WFIGMediaCollection.m; sourceTree = "<group>"; };
-		BE88E28114C1271B006910C5 /* WFIGResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGResponse.m; path = Sources/WFIGResponse.m; sourceTree = "<group>"; };
-		BE88E28214C1271B006910C5 /* WFIGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGUser.m; path = Sources/WFIGUser.m; sourceTree = "<group>"; };
-		BE88E28314C1271B006910C5 /* WFInstagramAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFInstagramAPI.m; path = Sources/WFInstagramAPI.m; sourceTree = "<group>"; };
-		BE88E29014C12725006910C5 /* WFIGAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGAuthController.h; path = Headers/WFIGAuthController.h; sourceTree = "<group>"; };
-		BE88E29114C12725006910C5 /* WFIGAuthDefaultInitialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGAuthDefaultInitialView.h; path = Headers/WFIGAuthDefaultInitialView.h; sourceTree = "<group>"; };
-		BE88E29214C12725006910C5 /* WFIGConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGConnection.h; path = Headers/WFIGConnection.h; sourceTree = "<group>"; };
-		BE88E29314C12725006910C5 /* WFIGConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGConnectionDelegate.h; path = Headers/WFIGConnectionDelegate.h; sourceTree = "<group>"; };
-		BE88E29414C12725006910C5 /* WFIGConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGConnectionDelegate.m; path = Sources/WFIGConnectionDelegate.m; sourceTree = "<group>"; };
-		BE88E29514C12725006910C5 /* WFIGDefaultSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGDefaultSerializer.h; path = Headers/WFIGDefaultSerializer.h; sourceTree = "<group>"; };
-		BE88E29614C12725006910C5 /* WFIGFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGFunctions.h; path = Headers/WFIGFunctions.h; sourceTree = "<group>"; };
-		BE88E29714C12725006910C5 /* WFIGImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGImageCache.h; path = Headers/WFIGImageCache.h; sourceTree = "<group>"; };
-		BE88E29814C12725006910C5 /* WFIGMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGMedia.h; path = Headers/WFIGMedia.h; sourceTree = "<group>"; };
-		BE88E29914C12725006910C5 /* WFIGMediaCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGMediaCollection.h; path = Headers/WFIGMediaCollection.h; sourceTree = "<group>"; };
-		BE88E29A14C12725006910C5 /* WFIGResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGResponse.h; path = Headers/WFIGResponse.h; sourceTree = "<group>"; };
-		BE88E29C14C12725006910C5 /* WFIGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGUser.h; path = Headers/WFIGUser.h; sourceTree = "<group>"; };
-		BE88E29D14C12725006910C5 /* WFInstagramAPI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WFInstagramAPI-Prefix.pch"; path = "Headers/WFInstagramAPI-Prefix.pch"; sourceTree = "<group>"; };
-		BE88E29E14C12725006910C5 /* WFInstagramAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFInstagramAPI.h; path = Headers/WFInstagramAPI.h; sourceTree = "<group>"; };
-		BE88E2BE14C12CD2006910C5 /* WFIGCJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGCJSONSerializer.h; path = Headers/WFIGCJSONSerializer.h; sourceTree = "<group>"; };
-		BE88E2BF14C12CD3006910C5 /* WFIGCJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGCJSONSerializer.m; path = Sources/WFIGCJSONSerializer.m; sourceTree = "<group>"; };
+		BE88E27814C1271B006910C5 /* WFIGAuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGAuthController.m; sourceTree = "<group>"; };
+		BE88E27914C1271B006910C5 /* WFIGAuthDefaultInitialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGAuthDefaultInitialView.m; sourceTree = "<group>"; };
+		BE88E27A14C1271B006910C5 /* WFIGConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGConnection.m; sourceTree = "<group>"; };
+		BE88E27C14C1271B006910C5 /* WFIGDefaultSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGDefaultSerializer.m; sourceTree = "<group>"; };
+		BE88E27D14C1271B006910C5 /* WFIGFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGFunctions.m; sourceTree = "<group>"; };
+		BE88E27E14C1271B006910C5 /* WFIGImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGImageCache.m; sourceTree = "<group>"; };
+		BE88E27F14C1271B006910C5 /* WFIGMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGMedia.m; sourceTree = "<group>"; };
+		BE88E28014C1271B006910C5 /* WFIGMediaCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGMediaCollection.m; sourceTree = "<group>"; };
+		BE88E28114C1271B006910C5 /* WFIGResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGResponse.m; sourceTree = "<group>"; };
+		BE88E28214C1271B006910C5 /* WFIGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGUser.m; sourceTree = "<group>"; };
+		BE88E28314C1271B006910C5 /* WFInstagramAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFInstagramAPI.m; sourceTree = "<group>"; };
+		BE88E29014C12725006910C5 /* WFIGAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGAuthController.h; sourceTree = "<group>"; };
+		BE88E29114C12725006910C5 /* WFIGAuthDefaultInitialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGAuthDefaultInitialView.h; sourceTree = "<group>"; };
+		BE88E29214C12725006910C5 /* WFIGConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGConnection.h; sourceTree = "<group>"; };
+		BE88E29314C12725006910C5 /* WFIGConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGConnectionDelegate.h; sourceTree = "<group>"; };
+		BE88E29414C12725006910C5 /* WFIGConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGConnectionDelegate.m; sourceTree = "<group>"; };
+		BE88E29514C12725006910C5 /* WFIGDefaultSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGDefaultSerializer.h; sourceTree = "<group>"; };
+		BE88E29614C12725006910C5 /* WFIGFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGFunctions.h; sourceTree = "<group>"; };
+		BE88E29714C12725006910C5 /* WFIGImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGImageCache.h; sourceTree = "<group>"; };
+		BE88E29814C12725006910C5 /* WFIGMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGMedia.h; sourceTree = "<group>"; };
+		BE88E29914C12725006910C5 /* WFIGMediaCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGMediaCollection.h; sourceTree = "<group>"; };
+		BE88E29A14C12725006910C5 /* WFIGResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGResponse.h; sourceTree = "<group>"; };
+		BE88E29C14C12725006910C5 /* WFIGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGUser.h; sourceTree = "<group>"; };
+		BE88E29D14C12725006910C5 /* WFInstagramAPI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WFInstagramAPI-Prefix.pch"; sourceTree = "<group>"; };
+		BE88E29E14C12725006910C5 /* WFInstagramAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFInstagramAPI.h; sourceTree = "<group>"; };
+		BE88E2BE14C12CD2006910C5 /* WFIGCJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGCJSONSerializer.h; sourceTree = "<group>"; };
+		BE88E2BF14C12CD3006910C5 /* WFIGCJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGCJSONSerializer.m; sourceTree = "<group>"; };
 		BE88E2C314C12E78006910C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE88E34A14C1E018006910C5 /* WFIGFunctionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGFunctionsTest.h; sourceTree = "<group>"; };
 		BE88E34B14C1E018006910C5 /* WFIGFunctionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGFunctionsTest.m; sourceTree = "<group>"; };
@@ -444,7 +444,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/WFInstagramAPI.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WFInstagramAPI/Headers/WFInstagramAPI-Prefix.pch";
+				GCC_PREFIX_HEADER = "WFInstagramAPI/WFInstagramAPI-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = /../WFInstagramAPI/PrivateHeaders;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -458,7 +458,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/WFInstagramAPI.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WFInstagramAPI/Headers/WFInstagramAPI-Prefix.pch";
+				GCC_PREFIX_HEADER = "WFInstagramAPI/WFInstagramAPI-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = /../WFInstagramAPI/PrivateHeaders;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -475,7 +475,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WFInstagramAPI/Headers/WFInstagramAPI-Prefix.pch";
+				GCC_PREFIX_HEADER = "WFInstagramAPI/WFInstagramAPI-Prefix.pch";
 				INFOPLIST_FILE = "WFInstagramAPITests/WFInstagramAPITests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -490,7 +490,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WFInstagramAPI/Headers/WFInstagramAPI-Prefix.pch";
+				GCC_PREFIX_HEADER = "WFInstagramAPI/WFInstagramAPI-Prefix.pch";
 				INFOPLIST_FILE = "WFInstagramAPITests/WFInstagramAPITests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
