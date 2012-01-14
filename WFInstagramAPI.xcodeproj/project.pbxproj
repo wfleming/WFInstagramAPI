@@ -8,13 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		BE88E23214C12548006910C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E23114C12548006910C5 /* Foundation.framework */; };
-		BE88E23814C12548006910C5 /* WFInstagramAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88E23714C12548006910C5 /* WFInstagramAPI.m */; };
 		BE88E24014C12549006910C5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E23F14C12549006910C5 /* SenTestingKit.framework */; };
-		BE88E24214C12549006910C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E24114C12549006910C5 /* UIKit.framework */; };
 		BE88E24314C12549006910C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E23114C12548006910C5 /* Foundation.framework */; };
 		BE88E24614C12549006910C5 /* libWFInstagramAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E22E14C12548006910C5 /* libWFInstagramAPI.a */; };
 		BE88E24C14C1254A006910C5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE88E24A14C1254A006910C5 /* InfoPlist.strings */; };
 		BE88E24F14C1254A006910C5 /* WFInstagramAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88E24E14C1254A006910C5 /* WFInstagramAPITests.m */; };
+		BE88E28414C1271B006910C5 /* WFIGAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88E27814C1271B006910C5 /* WFIGAuthController.m */; };
+		BE88E28514C1271B006910C5 /* WFIGAuthDefaultInitialView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88E27914C1271B006910C5 /* WFIGAuthDefaultInitialView.m */; };
+		BE88E28614C1271B006910C5 /* WFIGConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88E27A14C1271B006910C5 /* WFIGConnection.m */; };
+		BE88E28814C1271B006910C5 /* WFIGDefaultSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88E27C14C1271B006910C5 /* WFIGDefaultSerializer.m */; };
+		BE88E28914C1271B006910C5 /* WFIGFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88E27D14C1271B006910C5 /* WFIGFunctions.m */; };
+		BE88E28A14C1271B006910C5 /* WFIGImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88E27E14C1271B006910C5 /* WFIGImageCache.m */; };
+		BE88E28B14C1271B006910C5 /* WFIGMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88E27F14C1271B006910C5 /* WFIGMedia.m */; };
+		BE88E28C14C1271B006910C5 /* WFIGMediaCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88E28014C1271B006910C5 /* WFIGMediaCollection.m */; };
+		BE88E28D14C1271B006910C5 /* WFIGResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88E28114C1271B006910C5 /* WFIGResponse.m */; };
+		BE88E28E14C1271B006910C5 /* WFIGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88E28214C1271B006910C5 /* WFIGUser.m */; };
+		BE88E28F14C1271B006910C5 /* WFInstagramAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88E28314C1271B006910C5 /* WFInstagramAPI.m */; };
+		BE88E29F14C12725006910C5 /* WFIGAuthController.h in Headers */ = {isa = PBXBuildFile; fileRef = BE88E29014C12725006910C5 /* WFIGAuthController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE88E2A014C12725006910C5 /* WFIGAuthDefaultInitialView.h in Headers */ = {isa = PBXBuildFile; fileRef = BE88E29114C12725006910C5 /* WFIGAuthDefaultInitialView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE88E2A114C12725006910C5 /* WFIGConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = BE88E29214C12725006910C5 /* WFIGConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE88E2A214C12725006910C5 /* WFIGConnectionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = BE88E29314C12725006910C5 /* WFIGConnectionDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE88E2A314C12725006910C5 /* WFIGConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88E29414C12725006910C5 /* WFIGConnectionDelegate.m */; };
+		BE88E2A414C12725006910C5 /* WFIGDefaultSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = BE88E29514C12725006910C5 /* WFIGDefaultSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE88E2A514C12725006910C5 /* WFIGFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = BE88E29614C12725006910C5 /* WFIGFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE88E2A614C12725006910C5 /* WFIGImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = BE88E29714C12725006910C5 /* WFIGImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE88E2A714C12725006910C5 /* WFIGMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = BE88E29814C12725006910C5 /* WFIGMedia.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE88E2A814C12725006910C5 /* WFIGMediaCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = BE88E29914C12725006910C5 /* WFIGMediaCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE88E2A914C12725006910C5 /* WFIGResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = BE88E29A14C12725006910C5 /* WFIGResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE88E2AB14C12725006910C5 /* WFIGUser.h in Headers */ = {isa = PBXBuildFile; fileRef = BE88E29C14C12725006910C5 /* WFIGUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE88E2AD14C12725006910C5 /* WFInstagramAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = BE88E29E14C12725006910C5 /* WFInstagramAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE88E2C414C12E78006910C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E2C314C12E78006910C5 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,16 +53,40 @@
 /* Begin PBXFileReference section */
 		BE88E22E14C12548006910C5 /* libWFInstagramAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWFInstagramAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE88E23114C12548006910C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		BE88E23514C12548006910C5 /* WFInstagramAPI-Prefix.pch */ = {isa = PBXFileReference; path = "WFInstagramAPI-Prefix.pch"; sourceTree = "<group>"; };
-		BE88E23614C12548006910C5 /* WFInstagramAPI.h */ = {isa = PBXFileReference; path = WFInstagramAPI.h; sourceTree = "<group>"; };
-		BE88E23714C12548006910C5 /* WFInstagramAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFInstagramAPI.m; sourceTree = "<group>"; };
 		BE88E23E14C12549006910C5 /* WFInstagramAPITests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WFInstagramAPITests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE88E23F14C12549006910C5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		BE88E24114C12549006910C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		BE88E24914C1254A006910C5 /* WFInstagramAPITests-Info.plist */ = {isa = PBXFileReference; path = "WFInstagramAPITests-Info.plist"; sourceTree = "<group>"; };
+		BE88E24914C1254A006910C5 /* WFInstagramAPITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WFInstagramAPITests-Info.plist"; sourceTree = "<group>"; };
 		BE88E24B14C1254A006910C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BE88E24D14C1254A006910C5 /* WFInstagramAPITests.h */ = {isa = PBXFileReference; path = WFInstagramAPITests.h; sourceTree = "<group>"; };
+		BE88E24D14C1254A006910C5 /* WFInstagramAPITests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFInstagramAPITests.h; sourceTree = "<group>"; };
 		BE88E24E14C1254A006910C5 /* WFInstagramAPITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFInstagramAPITests.m; sourceTree = "<group>"; };
+		BE88E27814C1271B006910C5 /* WFIGAuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGAuthController.m; path = Sources/WFIGAuthController.m; sourceTree = "<group>"; };
+		BE88E27914C1271B006910C5 /* WFIGAuthDefaultInitialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGAuthDefaultInitialView.m; path = Sources/WFIGAuthDefaultInitialView.m; sourceTree = "<group>"; };
+		BE88E27A14C1271B006910C5 /* WFIGConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGConnection.m; path = Sources/WFIGConnection.m; sourceTree = "<group>"; };
+		BE88E27C14C1271B006910C5 /* WFIGDefaultSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGDefaultSerializer.m; path = Sources/WFIGDefaultSerializer.m; sourceTree = "<group>"; };
+		BE88E27D14C1271B006910C5 /* WFIGFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGFunctions.m; path = Sources/WFIGFunctions.m; sourceTree = "<group>"; };
+		BE88E27E14C1271B006910C5 /* WFIGImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGImageCache.m; path = Sources/WFIGImageCache.m; sourceTree = "<group>"; };
+		BE88E27F14C1271B006910C5 /* WFIGMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGMedia.m; path = Sources/WFIGMedia.m; sourceTree = "<group>"; };
+		BE88E28014C1271B006910C5 /* WFIGMediaCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGMediaCollection.m; path = Sources/WFIGMediaCollection.m; sourceTree = "<group>"; };
+		BE88E28114C1271B006910C5 /* WFIGResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGResponse.m; path = Sources/WFIGResponse.m; sourceTree = "<group>"; };
+		BE88E28214C1271B006910C5 /* WFIGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGUser.m; path = Sources/WFIGUser.m; sourceTree = "<group>"; };
+		BE88E28314C1271B006910C5 /* WFInstagramAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFInstagramAPI.m; path = Sources/WFInstagramAPI.m; sourceTree = "<group>"; };
+		BE88E29014C12725006910C5 /* WFIGAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGAuthController.h; path = Headers/WFIGAuthController.h; sourceTree = "<group>"; };
+		BE88E29114C12725006910C5 /* WFIGAuthDefaultInitialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGAuthDefaultInitialView.h; path = Headers/WFIGAuthDefaultInitialView.h; sourceTree = "<group>"; };
+		BE88E29214C12725006910C5 /* WFIGConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGConnection.h; path = Headers/WFIGConnection.h; sourceTree = "<group>"; };
+		BE88E29314C12725006910C5 /* WFIGConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGConnectionDelegate.h; path = Headers/WFIGConnectionDelegate.h; sourceTree = "<group>"; };
+		BE88E29414C12725006910C5 /* WFIGConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGConnectionDelegate.m; path = Sources/WFIGConnectionDelegate.m; sourceTree = "<group>"; };
+		BE88E29514C12725006910C5 /* WFIGDefaultSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGDefaultSerializer.h; path = Headers/WFIGDefaultSerializer.h; sourceTree = "<group>"; };
+		BE88E29614C12725006910C5 /* WFIGFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGFunctions.h; path = Headers/WFIGFunctions.h; sourceTree = "<group>"; };
+		BE88E29714C12725006910C5 /* WFIGImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGImageCache.h; path = Headers/WFIGImageCache.h; sourceTree = "<group>"; };
+		BE88E29814C12725006910C5 /* WFIGMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGMedia.h; path = Headers/WFIGMedia.h; sourceTree = "<group>"; };
+		BE88E29914C12725006910C5 /* WFIGMediaCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGMediaCollection.h; path = Headers/WFIGMediaCollection.h; sourceTree = "<group>"; };
+		BE88E29A14C12725006910C5 /* WFIGResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGResponse.h; path = Headers/WFIGResponse.h; sourceTree = "<group>"; };
+		BE88E29C14C12725006910C5 /* WFIGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGUser.h; path = Headers/WFIGUser.h; sourceTree = "<group>"; };
+		BE88E29D14C12725006910C5 /* WFInstagramAPI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WFInstagramAPI-Prefix.pch"; path = "Headers/WFInstagramAPI-Prefix.pch"; sourceTree = "<group>"; };
+		BE88E29E14C12725006910C5 /* WFInstagramAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFInstagramAPI.h; path = Headers/WFInstagramAPI.h; sourceTree = "<group>"; };
+		BE88E2BE14C12CD2006910C5 /* WFIGCJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGCJSONSerializer.h; path = Headers/WFIGCJSONSerializer.h; sourceTree = "<group>"; };
+		BE88E2BF14C12CD3006910C5 /* WFIGCJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGCJSONSerializer.m; path = Sources/WFIGCJSONSerializer.m; sourceTree = "<group>"; };
+		BE88E2C314C12E78006910C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE88E2C414C12E78006910C5 /* UIKit.framework in Frameworks */,
 				BE88E23214C12548006910C5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,7 +104,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE88E24014C12549006910C5 /* SenTestingKit.framework in Frameworks */,
-				BE88E24214C12549006910C5 /* UIKit.framework in Frameworks */,
 				BE88E24314C12549006910C5 /* Foundation.framework in Frameworks */,
 				BE88E24614C12549006910C5 /* libWFInstagramAPI.a in Frameworks */,
 			);
@@ -87,9 +134,9 @@
 		BE88E23014C12548006910C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE88E2C314C12E78006910C5 /* UIKit.framework */,
 				BE88E23114C12548006910C5 /* Foundation.framework */,
 				BE88E23F14C12549006910C5 /* SenTestingKit.framework */,
-				BE88E24114C12549006910C5 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -97,19 +144,16 @@
 		BE88E23314C12548006910C5 /* WFInstagramAPI */ = {
 			isa = PBXGroup;
 			children = (
-				BE88E23614C12548006910C5 /* WFInstagramAPI.h */,
-				BE88E23714C12548006910C5 /* WFInstagramAPI.m */,
-				BE88E23414C12548006910C5 /* Supporting Files */,
+				BE88E29D14C12725006910C5 /* WFInstagramAPI-Prefix.pch */,
+				BE88E29E14C12725006910C5 /* WFInstagramAPI.h */,
+				BE88E28314C1271B006910C5 /* WFInstagramAPI.m */,
+				BE88E2AE14C1273F006910C5 /* HTTP */,
+				BE88E2AF14C1274C006910C5 /* Models */,
+				BE88E2B014C12754006910C5 /* Auth Flow */,
+				BE88E29614C12725006910C5 /* WFIGFunctions.h */,
+				BE88E27D14C1271B006910C5 /* WFIGFunctions.m */,
 			);
 			path = WFInstagramAPI;
-			sourceTree = "<group>";
-		};
-		BE88E23414C12548006910C5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				BE88E23514C12548006910C5 /* WFInstagramAPI-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		BE88E24714C12549006910C5 /* WFInstagramAPITests */ = {
@@ -131,6 +175,49 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BE88E2AE14C1273F006910C5 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				BE88E29214C12725006910C5 /* WFIGConnection.h */,
+				BE88E27A14C1271B006910C5 /* WFIGConnection.m */,
+				BE88E29314C12725006910C5 /* WFIGConnectionDelegate.h */,
+				BE88E29414C12725006910C5 /* WFIGConnectionDelegate.m */,
+				BE88E29A14C12725006910C5 /* WFIGResponse.h */,
+				BE88E28114C1271B006910C5 /* WFIGResponse.m */,
+				BE88E29514C12725006910C5 /* WFIGDefaultSerializer.h */,
+				BE88E27C14C1271B006910C5 /* WFIGDefaultSerializer.m */,
+				BE88E2BE14C12CD2006910C5 /* WFIGCJSONSerializer.h */,
+				BE88E2BF14C12CD3006910C5 /* WFIGCJSONSerializer.m */,
+				BE88E29714C12725006910C5 /* WFIGImageCache.h */,
+				BE88E27E14C1271B006910C5 /* WFIGImageCache.m */,
+			);
+			name = HTTP;
+			sourceTree = "<group>";
+		};
+		BE88E2AF14C1274C006910C5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE88E29814C12725006910C5 /* WFIGMedia.h */,
+				BE88E27F14C1271B006910C5 /* WFIGMedia.m */,
+				BE88E29914C12725006910C5 /* WFIGMediaCollection.h */,
+				BE88E28014C1271B006910C5 /* WFIGMediaCollection.m */,
+				BE88E29C14C12725006910C5 /* WFIGUser.h */,
+				BE88E28214C1271B006910C5 /* WFIGUser.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		BE88E2B014C12754006910C5 /* Auth Flow */ = {
+			isa = PBXGroup;
+			children = (
+				BE88E29014C12725006910C5 /* WFIGAuthController.h */,
+				BE88E27814C1271B006910C5 /* WFIGAuthController.m */,
+				BE88E29114C12725006910C5 /* WFIGAuthDefaultInitialView.h */,
+				BE88E27914C1271B006910C5 /* WFIGAuthDefaultInitialView.m */,
+			);
+			name = "Auth Flow";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -138,6 +225,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE88E29F14C12725006910C5 /* WFIGAuthController.h in Headers */,
+				BE88E2A014C12725006910C5 /* WFIGAuthDefaultInitialView.h in Headers */,
+				BE88E2A114C12725006910C5 /* WFIGConnection.h in Headers */,
+				BE88E2A214C12725006910C5 /* WFIGConnectionDelegate.h in Headers */,
+				BE88E2A414C12725006910C5 /* WFIGDefaultSerializer.h in Headers */,
+				BE88E2A514C12725006910C5 /* WFIGFunctions.h in Headers */,
+				BE88E2A614C12725006910C5 /* WFIGImageCache.h in Headers */,
+				BE88E2A714C12725006910C5 /* WFIGMedia.h in Headers */,
+				BE88E2A914C12725006910C5 /* WFIGResponse.h in Headers */,
+				BE88E2A814C12725006910C5 /* WFIGMediaCollection.h in Headers */,
+				BE88E2AB14C12725006910C5 /* WFIGUser.h in Headers */,
+				BE88E2AD14C12725006910C5 /* WFInstagramAPI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,9 +247,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE88E25214C1254A006910C5 /* Build configuration list for PBXNativeTarget "WFInstagramAPI" */;
 			buildPhases = (
+				BE88E22C14C12548006910C5 /* Headers */,
 				BE88E22A14C12548006910C5 /* Sources */,
 				BE88E22B14C12548006910C5 /* Frameworks */,
-				BE88E22C14C12548006910C5 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -187,7 +286,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = "Endeca Technologies";
+				ORGANIZATIONNAME = "";
 			};
 			buildConfigurationList = BE88E22814C12547006910C5 /* Build configuration list for PBXProject "WFInstagramAPI" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -239,7 +338,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE88E23814C12548006910C5 /* WFInstagramAPI.m in Sources */,
+				BE88E28414C1271B006910C5 /* WFIGAuthController.m in Sources */,
+				BE88E28514C1271B006910C5 /* WFIGAuthDefaultInitialView.m in Sources */,
+				BE88E28614C1271B006910C5 /* WFIGConnection.m in Sources */,
+				BE88E28814C1271B006910C5 /* WFIGDefaultSerializer.m in Sources */,
+				BE88E28914C1271B006910C5 /* WFIGFunctions.m in Sources */,
+				BE88E28A14C1271B006910C5 /* WFIGImageCache.m in Sources */,
+				BE88E28B14C1271B006910C5 /* WFIGMedia.m in Sources */,
+				BE88E28C14C1271B006910C5 /* WFIGMediaCollection.m in Sources */,
+				BE88E28D14C1271B006910C5 /* WFIGResponse.m in Sources */,
+				BE88E28E14C1271B006910C5 /* WFIGUser.m in Sources */,
+				BE88E28F14C1271B006910C5 /* WFInstagramAPI.m in Sources */,
+				BE88E2A314C12725006910C5 /* WFIGConnectionDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,9 +430,11 @@
 			buildSettings = {
 				DSTROOT = /tmp/WFInstagramAPI.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WFInstagramAPI/WFInstagramAPI-Prefix.pch";
+				GCC_PREFIX_HEADER = "WFInstagramAPI/Headers/WFInstagramAPI-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = /../WFInstagramAPI/PrivateHeaders;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = /../WFInstagramAPI;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -332,9 +444,11 @@
 			buildSettings = {
 				DSTROOT = /tmp/WFInstagramAPI.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WFInstagramAPI/WFInstagramAPI-Prefix.pch";
+				GCC_PREFIX_HEADER = "WFInstagramAPI/Headers/WFInstagramAPI-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = /../WFInstagramAPI/PrivateHeaders;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = /../WFInstagramAPI;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -388,6 +502,7 @@
 				BE88E25414C1254A006910C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE88E25514C1254A006910C5 /* Build configuration list for PBXNativeTarget "WFInstagramAPITests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +511,7 @@
 				BE88E25714C1254A006910C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
