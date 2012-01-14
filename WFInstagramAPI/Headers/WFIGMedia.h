@@ -6,7 +6,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class WFIGMedia;
+@class WFIGMedia;  // for the block typedef
 
 typedef void (^WFIGMediaImageCallback)(WFIGMedia *media, UIImage *image);
 
@@ -34,11 +34,11 @@ typedef void (^WFIGMediaImageCallback)(WFIGMedia *media, UIImage *image);
 
 
 /**
- * media methods. Variants with a completion block argument execute
+ * Media methods. Variants with a completion block argument execute
  * asynchronously on a background thread: your block will get called on the
  * main thread when the image is ready.
  *
- * variants without the completion block are synchronous
+ * Variants without the completion block are synchronous.
  */
 - (UIImage*) image;
 - (void) imageCompletionBlock:(WFIGMediaImageCallback)completionBlock;

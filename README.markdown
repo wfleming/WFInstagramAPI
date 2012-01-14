@@ -1,4 +1,4 @@
-WFInstagramAPI is an iOS library for interacting with [Instagram's API](http://instagram.com/developer/). It was written initially to enable the development of [Lolgramz](http://lolgramz.com).
+WFInstagramAPI is an Objective-C iOS library for interacting with [Instagram's API](http://instagram.com/developer/). It was written initially to enable the development of [Lolgramz](http://lolgramz.com).
 
 # Usage
 

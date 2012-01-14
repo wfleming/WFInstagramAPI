@@ -3,7 +3,6 @@
 //  WFInstagramAPITests
 //
 //  Created by William Fleming on 1/13/12.
-//  Copyright (c) 2012 Endeca Technologies. All rights reserved.
 //
 
 #import "WFInstagramAPITests.h"
@@ -26,7 +25,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in WFInstagramAPITests");
+//    STFail(@"Unit tests are not implemented yet in WFInstagramAPITests");
 }
 
 @end

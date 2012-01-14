@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE6F2D1714C1F2B600F4AC83 /* WFIGMediaTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6F2D0814C1EAEB00F4AC83 /* WFIGMediaTest.m */; };
+		BE6F2D1814C1F2E100F4AC83 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E2C314C12E78006910C5 /* UIKit.framework */; };
 		BE88E23214C12548006910C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E23114C12548006910C5 /* Foundation.framework */; };
 		BE88E24014C12549006910C5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E23F14C12549006910C5 /* SenTestingKit.framework */; };
 		BE88E24314C12549006910C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E23114C12548006910C5 /* Foundation.framework */; };
@@ -38,6 +40,7 @@
 		BE88E2AB14C12725006910C5 /* WFIGUser.h in Headers */ = {isa = PBXBuildFile; fileRef = BE88E29C14C12725006910C5 /* WFIGUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE88E2AD14C12725006910C5 /* WFInstagramAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = BE88E29E14C12725006910C5 /* WFInstagramAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE88E2C414C12E78006910C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E2C314C12E78006910C5 /* UIKit.framework */; };
+		BE88E35514C1E44A006910C5 /* WFIGFunctionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE88E34B14C1E018006910C5 /* WFIGFunctionsTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE6F2D0714C1EAEB00F4AC83 /* WFIGMediaTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGMediaTest.h; sourceTree = "<group>"; };
+		BE6F2D0814C1EAEB00F4AC83 /* WFIGMediaTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGMediaTest.m; sourceTree = "<group>"; };
 		BE88E22E14C12548006910C5 /* libWFInstagramAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWFInstagramAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE88E23114C12548006910C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE88E23E14C12549006910C5 /* WFInstagramAPITests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WFInstagramAPITests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +92,8 @@
 		BE88E2BE14C12CD2006910C5 /* WFIGCJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WFIGCJSONSerializer.h; path = Headers/WFIGCJSONSerializer.h; sourceTree = "<group>"; };
 		BE88E2BF14C12CD3006910C5 /* WFIGCJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WFIGCJSONSerializer.m; path = Sources/WFIGCJSONSerializer.m; sourceTree = "<group>"; };
 		BE88E2C314C12E78006910C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BE88E34A14C1E018006910C5 /* WFIGFunctionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGFunctionsTest.h; sourceTree = "<group>"; };
+		BE88E34B14C1E018006910C5 /* WFIGFunctionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGFunctionsTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE6F2D1814C1F2E100F4AC83 /* UIKit.framework in Frameworks */,
 				BE88E24014C12549006910C5 /* SenTestingKit.framework in Frameworks */,
 				BE88E24314C12549006910C5 /* Foundation.framework in Frameworks */,
 				BE88E24614C12549006910C5 /* libWFInstagramAPI.a in Frameworks */,
@@ -161,6 +169,10 @@
 			children = (
 				BE88E24D14C1254A006910C5 /* WFInstagramAPITests.h */,
 				BE88E24E14C1254A006910C5 /* WFInstagramAPITests.m */,
+				BE6F2D0714C1EAEB00F4AC83 /* WFIGMediaTest.h */,
+				BE6F2D0814C1EAEB00F4AC83 /* WFIGMediaTest.m */,
+				BE88E34A14C1E018006910C5 /* WFIGFunctionsTest.h */,
+				BE88E34B14C1E018006910C5 /* WFIGFunctionsTest.m */,
 				BE88E24814C1254A006910C5 /* Supporting Files */,
 			);
 			path = WFInstagramAPITests;
@@ -358,6 +370,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE88E24F14C1254A006910C5 /* WFInstagramAPITests.m in Sources */,
+				BE88E35514C1E44A006910C5 /* WFIGFunctionsTest.m in Sources */,
+				BE6F2D1714C1F2B600F4AC83 /* WFIGMediaTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,7 +475,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WFInstagramAPI/WFInstagramAPI-Prefix.pch";
+				GCC_PREFIX_HEADER = "WFInstagramAPI/Headers/WFInstagramAPI-Prefix.pch";
 				INFOPLIST_FILE = "WFInstagramAPITests/WFInstagramAPITests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -476,7 +490,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WFInstagramAPI/WFInstagramAPI-Prefix.pch";
+				GCC_PREFIX_HEADER = "WFInstagramAPI/Headers/WFInstagramAPI-Prefix.pch";
 				INFOPLIST_FILE = "WFInstagramAPITests/WFInstagramAPITests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
