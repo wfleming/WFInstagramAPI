@@ -1,5 +1,5 @@
 //
-//  WFIGMediaTest.h
+//  WFIGDefaultSerializerTest.h
 //
 //  Created by William Fleming on 1/14/12.
 //
@@ -9,6 +9,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface WFIGMediaTest : SenTestCase
+@interface WFIGDefaultSerializerTest : SenTestCase
 
 @end

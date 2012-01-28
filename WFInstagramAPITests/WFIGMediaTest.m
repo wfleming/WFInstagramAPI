@@ -45,6 +45,7 @@
   NSDate *expectedDate = [NSDate dateWithTimeIntervalSince1970:479628000.0];
   STAssertEqualObjects(expectedDate, media.createdTime, @"wrong created date");
   STAssertEqualObjects([json objectForKey:@"tags"], media.tags, @"wrong tags");
+  STAssertEqualObjects([json objectForKey:@"caption"], media.caption, @"wrong caption");
   
   STAssertEqualObjects([[[json objectForKey:@"images"]
                          objectForKey:@"standard_resolution"]
@@ -58,6 +59,28 @@
                          objectForKey:@"thumbnail"]
                         objectForKey:@"url"],
                        media.thumbnailURL, @"wrong thumbnail image URL");
+}
+
+/* some API calls return caption: "text", while others return more metadata,
+ * which WFInstagramAPI currently discards. */
+- (void) testComplexCaptionInitialization {
+  NSMutableDictionary *json = [self basicJSON];
+  NSString *expectedCaption = @"sample caption";
+  [json setObject:[NSDictionary dictionaryWithObjectsAndKeys:
+                   @"479628000", @"created_time",
+                   expectedCaption, @"text",
+                   @"23456", @"id",
+                   [NSDictionary dictionaryWithObjectsAndKeys:
+                    @"abbynormal", @"username",
+                    @"Abby Normal", @"full_name",
+                    @"user", @"type",
+                    @"12345", @"id",
+                    nil], @"from",
+                   nil]
+           forKey:@"caption"];
+  
+  WFIGMedia *media = [[WFIGMedia alloc] initWithJSONFragment:json];
+  STAssertEqualObjects(expectedCaption, media.caption, @"wrong caption");
 }
 
 @end

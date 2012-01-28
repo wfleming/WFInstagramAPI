@@ -1,6 +1,5 @@
 //
 //  WFInstagramAPITests.h
-//  WFInstagramAPITests
 //
 //  Created by William Fleming on 1/13/12.
 //

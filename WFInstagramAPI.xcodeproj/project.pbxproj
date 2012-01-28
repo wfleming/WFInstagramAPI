@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE18925514C20A300085A01E /* WFIGDefaultSerializerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE18925414C20A300085A01E /* WFIGDefaultSerializerTest.m */; };
+		BE18925E14C225460085A01E /* StaticMock.m in Sources */ = {isa = PBXBuildFile; fileRef = BE18925D14C225460085A01E /* StaticMock.m */; };
 		BE6F2D1714C1F2B600F4AC83 /* WFIGMediaTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6F2D0814C1EAEB00F4AC83 /* WFIGMediaTest.m */; };
 		BE6F2D1814C1F2E100F4AC83 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E2C314C12E78006910C5 /* UIKit.framework */; };
 		BE88E23214C12548006910C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E23114C12548006910C5 /* Foundation.framework */; };
@@ -54,6 +56,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE18925314C20A300085A01E /* WFIGDefaultSerializerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGDefaultSerializerTest.h; sourceTree = "<group>"; };
+		BE18925414C20A300085A01E /* WFIGDefaultSerializerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGDefaultSerializerTest.m; sourceTree = "<group>"; };
+		BE18925C14C225460085A01E /* StaticMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticMock.h; sourceTree = "<group>"; };
+		BE18925D14C225460085A01E /* StaticMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticMock.m; sourceTree = "<group>"; };
 		BE6F2D0714C1EAEB00F4AC83 /* WFIGMediaTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGMediaTest.h; sourceTree = "<group>"; };
 		BE6F2D0814C1EAEB00F4AC83 /* WFIGMediaTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGMediaTest.m; sourceTree = "<group>"; };
 		BE88E22E14C12548006910C5 /* libWFInstagramAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWFInstagramAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +126,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE18925A14C224940085A01E /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				BE18925C14C225460085A01E /* StaticMock.h */,
+				BE18925D14C225460085A01E /* StaticMock.m */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		BE88E22314C12547006910C5 = {
 			isa = PBXGroup;
 			children = (
@@ -171,8 +186,11 @@
 				BE88E24E14C1254A006910C5 /* WFInstagramAPITests.m */,
 				BE6F2D0714C1EAEB00F4AC83 /* WFIGMediaTest.h */,
 				BE6F2D0814C1EAEB00F4AC83 /* WFIGMediaTest.m */,
+				BE18925314C20A300085A01E /* WFIGDefaultSerializerTest.h */,
+				BE18925414C20A300085A01E /* WFIGDefaultSerializerTest.m */,
 				BE88E34A14C1E018006910C5 /* WFIGFunctionsTest.h */,
 				BE88E34B14C1E018006910C5 /* WFIGFunctionsTest.m */,
+				BE18925A14C224940085A01E /* lib */,
 				BE88E24814C1254A006910C5 /* Supporting Files */,
 			);
 			path = WFInstagramAPITests;
@@ -372,6 +390,8 @@
 				BE88E24F14C1254A006910C5 /* WFInstagramAPITests.m in Sources */,
 				BE88E35514C1E44A006910C5 /* WFIGFunctionsTest.m in Sources */,
 				BE6F2D1714C1F2B600F4AC83 /* WFIGMediaTest.m in Sources */,
+				BE18925514C20A300085A01E /* WFIGDefaultSerializerTest.m in Sources */,
+				BE18925E14C225460085A01E /* StaticMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,7 +496,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WFInstagramAPI/WFInstagramAPI-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/WFInstagramAPITests/Libraries/Headers";
 				INFOPLIST_FILE = "WFInstagramAPITests/WFInstagramAPITests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/WFInstagramAPITests/Libraries",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-force_load",
+					"$(PROJECT_DIR)/WFInstagramAPITests/Libraries/libOCMock.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -491,7 +521,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WFInstagramAPI/WFInstagramAPI-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/WFInstagramAPITests/Libraries/Headers";
 				INFOPLIST_FILE = "WFInstagramAPITests/WFInstagramAPITests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/WFInstagramAPITests/Libraries",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-force_load",
+					"$(PROJECT_DIR)/WFInstagramAPITests/Libraries/libOCMock.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
