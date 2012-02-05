@@ -68,7 +68,11 @@ NSString * const kWFIGErrorDomain = @"IGErrorDomain";
     if ([self isError] && ![self error]) {
       NSString *message = @"An error occurred.";
       if ([self parsedBody]) {
-        message = [[[self parsedBody] objectForKey:@"meta"] objectForKey:@"error_message"];
+        if ([[self parsedBody] objectForKey:@"error_message"]) {
+          message = [[self parsedBody] objectForKey:@"error_message"];
+        } else if ([[self parsedBody] objectForKey:@"meta"]) {
+          message = [[[self parsedBody] objectForKey:@"meta"] objectForKey:@"error_message"];
+        }
       }
       _error = [NSError errorWithDomain:kWFIGErrorDomain
                                    code:_statusCode
@@ -101,6 +105,12 @@ NSString * const kWFIGErrorDomain = @"IGErrorDomain";
     }
   }
   return _parsedBody;
+}
+
+- (NSString*) description {
+  NSMutableString *d = [NSMutableString stringWithString:[super description]];
+  [d appendFormat:@"{status = %d, body = %@, error = %@}", self.statusCode, [self bodyAsString], [self error]];
+  return d;
 }
 
 @end
