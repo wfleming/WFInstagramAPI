@@ -9,6 +9,7 @@
 #import "WFIGFunctions.h"
 
 static NSString *g_instagramClientId = nil;
+static NSString *g_instagramClientSecret = nil;
 static NSString *g_instagramOAuthRedirectURL = nil;
 static NSString *g_instagramAccessToken = nil;
 static Class<WFIGSerializer> g_instagramSerializer = nil;
@@ -37,7 +38,15 @@ static WFInstagramAPIErrorHandler g_errorHandler = nil;
   return g_instagramClientId;
 }
 
-+ (void) setOAuthRedirctURL:(NSString*)url {
++ (void) setClientSecret:(NSString*)clientSecret {
+  g_instagramClientSecret = clientSecret;
+}
+
++ (NSString*) clientSecret {
+  return g_instagramClientSecret;
+}
+
++ (void) setOAuthRedirectURL:(NSString*)url {
   g_instagramOAuthRedirectURL = url;
 }
 
@@ -151,6 +160,23 @@ static WFInstagramAPIErrorHandler g_errorHandler = nil;
     keyWindow.hidden = YES;
     [authWindow makeKeyAndVisible];
   } completion:NULL];
+}
+
++ (WFIGResponse*) accessTokenForCode:(NSString*)code {
+  NSString *url = [NSString stringWithFormat:@"%@/oauth/access_token", [self endpoint]];
+  NSMutableURLRequest *request = [WFIGConnection requestForMethod:@"POST" to:url];
+  
+  [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField: @"Content-Type"];
+  
+  NSMutableString *body = [[NSMutableString alloc] init];
+  [body appendFormat:@"client_id=%@&", [self clientId]];
+  [body appendFormat:@"client_secret=%@&", [self clientSecret]];
+  [body appendString:@"grant_type=authorization_code&"];
+  [body appendFormat:@"redirect_uri=%@&", WFIGURLEncodedString([self oauthRedirectURL])];
+  [body appendFormat:@"code=%@", code];
+  [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+  
+  return [WFIGConnection sendRequest:request];
 }
 
 @end

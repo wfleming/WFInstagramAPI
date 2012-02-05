@@ -23,7 +23,9 @@ typedef void (^WFInstagramAPIErrorHandler)(WFIGResponse*);
 
 + (void) setClientId:(NSString*)clientId;
 + (NSString*) clientId;
-+ (void) setOAuthRedirctURL:(NSString*)url;
++ (void) setClientSecret:(NSString*)clientSecret;
++ (NSString*) clientSecret;
++ (void) setOAuthRedirectURL:(NSString*)url;
 + (NSString*)oauthRedirectURL;
 + (void) setAccessToken:(NSString*)accessToken;
 + (NSString*) accessToken;
@@ -34,6 +36,8 @@ typedef void (^WFInstagramAPIErrorHandler)(WFIGResponse*);
 
 /**
  * NB - there is no guarantee about what thread this handler will be run on.
+ * If you do any UI manipulation (i.e. display an error) in this handler,
+ * you should ensure that code runs on the main thread.
  */
 + (WFInstagramAPIErrorHandler)globalErrorHandler;
 + (void) setGlobalErrorHandler:(WFInstagramAPIErrorHandler)block;
@@ -48,7 +52,21 @@ typedef void (^WFInstagramAPIErrorHandler)(WFIGResponse*);
 
 + (WFIGUser*)currentUser;
 
-+ (void) authenticateUser; // enter the OAuth flow if needed
-+ (void) enterAuthFlow; // explicitly - doesn't check tokens or anything
+/**
+ * enter the OAuth flow if needed
+ */
++ (void) authenticateUser;
+
+/**
+ * enter the auth flow immediately, regardless of current auth status
+ */
++ (void) enterAuthFlow;
+
+/**
+ * retrieve the access token for a user after they've authorized the client
+ * via OAuth. This returns the raw response, so you get both the token & user JSON.
+ * See the Instagram API documentation for details.
+ */
++ (WFIGResponse*) accessTokenForCode:(NSString*)code;
 
 @end
