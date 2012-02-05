@@ -1,0 +1,367 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE30E20A14D4855700232F8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE30E20914D4855700232F8F /* UIKit.framework */; };
+		BE30E20C14D4855700232F8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE30E20B14D4855700232F8F /* Foundation.framework */; };
+		BE30E20E14D4855700232F8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE30E20D14D4855700232F8F /* CoreGraphics.framework */; };
+		BE30E21414D4855700232F8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE30E21214D4855700232F8F /* InfoPlist.strings */; };
+		BE30E21614D4855700232F8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE30E21514D4855700232F8F /* main.m */; };
+		BE30E21A14D4855700232F8F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE30E21914D4855700232F8F /* AppDelegate.m */; };
+		BE30E21D14D4855700232F8F /* UserMediaListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE30E21C14D4855700232F8F /* UserMediaListController.m */; };
+		BE30E22414D4855700232F8F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE30E22314D4855700232F8F /* SecondViewController.m */; };
+		BE30E24714D485F900232F8F /* WFInstagramAPI.xcodeproj in Frameworks */ = {isa = PBXBuildFile; fileRef = BE30E23E14D485ED00232F8F /* WFInstagramAPI.xcodeproj */; };
+		BE30E25314D4861600232F8F /* libWFInstagramAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE30E24414D485ED00232F8F /* libWFInstagramAPI.a */; };
+		BEAD136D14DD8FDA00FED356 /* APIClient.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEAD136C14DD8FDA00FED356 /* APIClient.plist */; };
+		BEAD137114DDAAB800FED356 /* NSURL+WillFleming.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAD137014DDA6B200FED356 /* NSURL+WillFleming.m */; };
+		BEAD137414DF1AAB00FED356 /* MediaListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAD137314DF1AAB00FED356 /* MediaListCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE30E24314D485ED00232F8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE30E23E14D485ED00232F8F /* WFInstagramAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BE88E22E14C12548006910C5;
+			remoteInfo = WFInstagramAPI;
+		};
+		BE30E24514D485ED00232F8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE30E23E14D485ED00232F8F /* WFInstagramAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BE88E23E14C12549006910C5;
+			remoteInfo = WFInstagramAPITests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BE30E20514D4855600232F8F /* WFInstagramAPIExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WFInstagramAPIExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE30E20914D4855700232F8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BE30E20B14D4855700232F8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BE30E20D14D4855700232F8F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BE30E21114D4855700232F8F /* WFInstagramAPIExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WFInstagramAPIExample-Info.plist"; sourceTree = "<group>"; };
+		BE30E21314D4855700232F8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BE30E21514D4855700232F8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BE30E21714D4855700232F8F /* WFInstagramAPIExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WFInstagramAPIExample-Prefix.pch"; sourceTree = "<group>"; };
+		BE30E21814D4855700232F8F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BE30E21914D4855700232F8F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BE30E21B14D4855700232F8F /* UserMediaListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserMediaListController.h; sourceTree = "<group>"; };
+		BE30E21C14D4855700232F8F /* UserMediaListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserMediaListController.m; sourceTree = "<group>"; };
+		BE30E22214D4855700232F8F /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		BE30E22314D4855700232F8F /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		BE30E23E14D485ED00232F8F /* WFInstagramAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WFInstagramAPI.xcodeproj; path = ../WFInstagramAPI.xcodeproj; sourceTree = "<group>"; };
+		BEAD136C14DD8FDA00FED356 /* APIClient.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIClient.plist; sourceTree = "<group>"; };
+		BEAD136F14DDA6B200FED356 /* NSURL+WillFleming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURL+WillFleming.h"; sourceTree = "<group>"; };
+		BEAD137014DDA6B200FED356 /* NSURL+WillFleming.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+WillFleming.m"; sourceTree = "<group>"; };
+		BEAD137214DF1AAB00FED356 /* MediaListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaListCell.h; sourceTree = "<group>"; };
+		BEAD137314DF1AAB00FED356 /* MediaListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaListCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE30E20214D4855600232F8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE30E24714D485F900232F8F /* WFInstagramAPI.xcodeproj in Frameworks */,
+				BE30E25314D4861600232F8F /* libWFInstagramAPI.a in Frameworks */,
+				BE30E20A14D4855700232F8F /* UIKit.framework in Frameworks */,
+				BE30E20C14D4855700232F8F /* Foundation.framework in Frameworks */,
+				BE30E20E14D4855700232F8F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE30E1FA14D4855600232F8F = {
+			isa = PBXGroup;
+			children = (
+				BE30E20F14D4855700232F8F /* WFInstagramAPIExample */,
+				BE30E20814D4855700232F8F /* Frameworks */,
+				BE30E20614D4855600232F8F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE30E20614D4855600232F8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE30E20514D4855600232F8F /* WFInstagramAPIExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE30E20814D4855700232F8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE30E23E14D485ED00232F8F /* WFInstagramAPI.xcodeproj */,
+				BE30E20914D4855700232F8F /* UIKit.framework */,
+				BE30E20B14D4855700232F8F /* Foundation.framework */,
+				BE30E20D14D4855700232F8F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE30E20F14D4855700232F8F /* WFInstagramAPIExample */ = {
+			isa = PBXGroup;
+			children = (
+				BE30E21814D4855700232F8F /* AppDelegate.h */,
+				BE30E21914D4855700232F8F /* AppDelegate.m */,
+				BE30E21B14D4855700232F8F /* UserMediaListController.h */,
+				BE30E21C14D4855700232F8F /* UserMediaListController.m */,
+				BEAD137214DF1AAB00FED356 /* MediaListCell.h */,
+				BEAD137314DF1AAB00FED356 /* MediaListCell.m */,
+				BE30E22214D4855700232F8F /* SecondViewController.h */,
+				BE30E22314D4855700232F8F /* SecondViewController.m */,
+				BEAD136E14DDA68F00FED356 /* lib */,
+				BE30E21014D4855700232F8F /* Supporting Files */,
+			);
+			path = WFInstagramAPIExample;
+			sourceTree = "<group>";
+		};
+		BE30E21014D4855700232F8F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE30E21114D4855700232F8F /* WFInstagramAPIExample-Info.plist */,
+				BE30E21214D4855700232F8F /* InfoPlist.strings */,
+				BE30E21514D4855700232F8F /* main.m */,
+				BE30E21714D4855700232F8F /* WFInstagramAPIExample-Prefix.pch */,
+				BEAD136C14DD8FDA00FED356 /* APIClient.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE30E23F14D485ED00232F8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE30E24414D485ED00232F8F /* libWFInstagramAPI.a */,
+				BE30E24614D485ED00232F8F /* WFInstagramAPITests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BEAD136E14DDA68F00FED356 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				BEAD136F14DDA6B200FED356 /* NSURL+WillFleming.h */,
+				BEAD137014DDA6B200FED356 /* NSURL+WillFleming.m */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE30E20414D4855600232F8F /* WFInstagramAPIExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE30E23114D4855700232F8F /* Build configuration list for PBXNativeTarget "WFInstagramAPIExample" */;
+			buildPhases = (
+				BE30E20114D4855600232F8F /* Sources */,
+				BE30E20214D4855600232F8F /* Frameworks */,
+				BE30E20314D4855600232F8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WFInstagramAPIExample;
+			productName = WFInstagramAPIExample;
+			productReference = BE30E20514D4855600232F8F /* WFInstagramAPIExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE30E1FC14D4855600232F8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = BE30E1FF14D4855600232F8F /* Build configuration list for PBXProject "WFInstagramAPIExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BE30E1FA14D4855600232F8F;
+			productRefGroup = BE30E20614D4855600232F8F /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BE30E23F14D485ED00232F8F /* Products */;
+					ProjectRef = BE30E23E14D485ED00232F8F /* WFInstagramAPI.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				BE30E20414D4855600232F8F /* WFInstagramAPIExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BE30E24414D485ED00232F8F /* libWFInstagramAPI.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libWFInstagramAPI.a;
+			remoteRef = BE30E24314D485ED00232F8F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BE30E24614D485ED00232F8F /* WFInstagramAPITests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = WFInstagramAPITests.octest;
+			remoteRef = BE30E24514D485ED00232F8F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE30E20314D4855600232F8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE30E21414D4855700232F8F /* InfoPlist.strings in Resources */,
+				BEAD136D14DD8FDA00FED356 /* APIClient.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE30E20114D4855600232F8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE30E21614D4855700232F8F /* main.m in Sources */,
+				BE30E21A14D4855700232F8F /* AppDelegate.m in Sources */,
+				BE30E21D14D4855700232F8F /* UserMediaListController.m in Sources */,
+				BE30E22414D4855700232F8F /* SecondViewController.m in Sources */,
+				BEAD137114DDAAB800FED356 /* NSURL+WillFleming.m in Sources */,
+				BEAD137414DF1AAB00FED356 /* MediaListCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BE30E21214D4855700232F8F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE30E21314D4855700232F8F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE30E22F14D4855700232F8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BE30E23014D4855700232F8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE30E23214D4855700232F8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WFInstagramAPIExample/WFInstagramAPIExample-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)/../../WFInstagramAPI",
+					"$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI",
+				);
+				INFOPLIST_FILE = "WFInstagramAPIExample/WFInstagramAPIExample-Info.plist";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BE30E23314D4855700232F8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WFInstagramAPIExample/WFInstagramAPIExample-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)/../../WFInstagramAPI",
+					"$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI",
+				);
+				INFOPLIST_FILE = "WFInstagramAPIExample/WFInstagramAPIExample-Info.plist";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE30E1FF14D4855600232F8F /* Build configuration list for PBXProject "WFInstagramAPIExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE30E22F14D4855700232F8F /* Debug */,
+				BE30E23014D4855700232F8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE30E23114D4855700232F8F /* Build configuration list for PBXNativeTarget "WFInstagramAPIExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE30E23214D4855700232F8F /* Debug */,
+				BE30E23314D4855700232F8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE30E1FC14D4855600232F8F /* Project object */;
+}

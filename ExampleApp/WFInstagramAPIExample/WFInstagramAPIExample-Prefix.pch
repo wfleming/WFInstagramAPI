@@ -1,0 +1,23 @@
+//
+// Prefix header for all source files of the 'WFInstagramAPIExample' target in the 'WFInstagramAPIExample' project
+//
+
+#import <Availability.h>
+
+#import "WFInstagramAPI.h"
+#import "NSURL+WillFleming.h"
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+  #import <UIKit/UIKit.h>
+  #import <Foundation/Foundation.h>
+#endif
+
+#ifdef DEBUG
+#define DLOG(fmt, ...) NSLog(@"%s(%d): " fmt, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#define DLOG(fmt, ...) ((void)0)
+#endif
