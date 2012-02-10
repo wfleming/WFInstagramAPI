@@ -9,10 +9,8 @@
 #import "MediaDetailController.h"
 
 #import "MediaImageCell.h"
+#import "NewCommentController.h"
 
-@interface MediaDetailController ()
-
-@end
 
 @implementation MediaDetailController
 
@@ -70,8 +68,8 @@
   } else if (section <= 2) {
     return 1;
   } else {
-    //TODO - comment count
-    return 0;
+    // comment count + 1 (for add new)
+    return [[self.media comments] count] + 1;
   }
 }
 
@@ -79,7 +77,7 @@
   NSString *t = nil;
   
   if (3 == section) { // comments
-    t = @"Comments";
+    t = [NSString stringWithFormat:@"%d Comments", [[self.media comments] count]];
   }
   
   return t;
@@ -107,7 +105,6 @@
     } else if (1 == indexPath.row) {
       cell.textLabel.text = [NSString stringWithFormat:@"taken %@", self.media.createdTime];
     }
-    
   } else if (2 == indexPath.section) { // caption
     cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
     if (nil == cell) {
@@ -115,7 +112,16 @@
     }
     cell.textLabel.text = self.media.caption;
   } else if (3 == indexPath.section) { // comments
-    //TODO
+    cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
+    if (nil == cell) {
+      cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
+    }
+    if (indexPath.row < [[self.media comments] count]) {
+      WFIGComment *comment = [[self.media comments] objectAtIndex:indexPath.row];
+      cell.textLabel.text = [NSString stringWithFormat:@"%@ (by %@)", comment.text, comment.user.username];
+    } else { // new comment
+      cell.textLabel.text = @"Add Comment";
+    }
   }
   
   return cell;
@@ -133,13 +139,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+  // add a new comment
+  if (3 == indexPath.section && ([self tableView:tableView numberOfRowsInSection:indexPath.section] - 1) == indexPath.row) {
+    NewCommentController *c = [[NewCommentController alloc] initWithMedia:self.media];
+    [self.navigationController pushViewController:c animated:YES];
+  }
 }
 
 @end

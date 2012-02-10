@@ -27,8 +27,16 @@
       self.title = [NSString stringWithFormat:@"%@'s Photos", _user.username];
     }
     
+    // so we can reload data after coming back from auth flow
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidBecomeKey:) name:UIWindowDidBecomeKeyNotification object:self.view.window];
   }
   return self;
+}
+
+- (void) windowDidBecomeKey:(NSNotification*)notification {
+  if ([self isViewLoaded] && self.view.window == notification.object) {
+    [self viewWillAppear:NO];
+  }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

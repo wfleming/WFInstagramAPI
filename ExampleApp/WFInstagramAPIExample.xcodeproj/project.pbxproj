@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BE13844C14E4BF9300C6F915 /* MediaDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE13844B14E4BF9300C6F915 /* MediaDetailController.m */; };
 		BE13844F14E4C0C600C6F915 /* MediaImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE13844E14E4C0C600C6F915 /* MediaImageCell.m */; };
+		BE29466314E5C334007EF730 /* NewCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE29466114E5C334007EF730 /* NewCommentController.m */; };
+		BE29466414E5C334007EF730 /* NewCommentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE29466214E5C334007EF730 /* NewCommentController.xib */; };
 		BE30E20A14D4855700232F8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE30E20914D4855700232F8F /* UIKit.framework */; };
 		BE30E20C14D4855700232F8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE30E20B14D4855700232F8F /* Foundation.framework */; };
 		BE30E20E14D4855700232F8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE30E20D14D4855700232F8F /* CoreGraphics.framework */; };
@@ -44,6 +46,9 @@
 		BE13844B14E4BF9300C6F915 /* MediaDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaDetailController.m; sourceTree = "<group>"; };
 		BE13844D14E4C0C600C6F915 /* MediaImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaImageCell.h; sourceTree = "<group>"; };
 		BE13844E14E4C0C600C6F915 /* MediaImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaImageCell.m; sourceTree = "<group>"; };
+		BE29466014E5C334007EF730 /* NewCommentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewCommentController.h; sourceTree = "<group>"; };
+		BE29466114E5C334007EF730 /* NewCommentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCommentController.m; sourceTree = "<group>"; };
+		BE29466214E5C334007EF730 /* NewCommentController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCommentController.xib; sourceTree = "<group>"; };
 		BE30E20514D4855600232F8F /* WFInstagramAPIExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WFInstagramAPIExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE30E20914D4855700232F8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE30E20B14D4855700232F8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -101,6 +106,16 @@
 			name = "User Media List";
 			sourceTree = "<group>";
 		};
+		BE13847714E5C26C00C6F915 /* New Comment */ = {
+			isa = PBXGroup;
+			children = (
+				BE29466014E5C334007EF730 /* NewCommentController.h */,
+				BE29466114E5C334007EF730 /* NewCommentController.m */,
+				BE29466214E5C334007EF730 /* NewCommentController.xib */,
+			);
+			name = "New Comment";
+			sourceTree = "<group>";
+		};
 		BE30E1FA14D4855600232F8F = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +151,7 @@
 				BE30E21914D4855700232F8F /* AppDelegate.m */,
 				BE13844914E4BF6300C6F915 /* User Media List */,
 				BE13844814E4BF3400C6F915 /* Media Detail */,
+				BE13847714E5C26C00C6F915 /* New Comment */,
 				BEAD136E14DDA68F00FED356 /* lib */,
 				BE30E21014D4855700232F8F /* Supporting Files */,
 			);
@@ -247,6 +263,7 @@
 			files = (
 				BE30E21414D4855700232F8F /* InfoPlist.strings in Resources */,
 				BEAD136D14DD8FDA00FED356 /* APIClient.plist in Resources */,
+				BE29466414E5C334007EF730 /* NewCommentController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +281,7 @@
 				BEAD137414DF1AAB00FED356 /* MediaListCell.m in Sources */,
 				BE13844C14E4BF9300C6F915 /* MediaDetailController.m in Sources */,
 				BE13844F14E4C0C600C6F915 /* MediaImageCell.m in Sources */,
+				BE29466314E5C334007EF730 /* NewCommentController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

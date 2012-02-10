@@ -28,8 +28,6 @@ static CGFloat kCellMargin = 5.0;
 - (void) layoutSubviews {
   [super layoutSubviews];
   
-  DLOG(@"contentView frame = %@", NSStringFromCGRect(self.contentView.frame));
-  
   CGFloat imgSize = self.contentView.frame.size.height - (2.0 * kCellMargin);
   _imageView.frame = CGRectMake(kCellMargin, kCellMargin, imgSize, imgSize);
   
