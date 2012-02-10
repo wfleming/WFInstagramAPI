@@ -8,6 +8,7 @@
 
 #import "WFIGFunctions.h"
 #import "WFIGImageCache.h"
+#import "WFIGUser.h"
 
 @implementation WFIGMedia
 
@@ -55,6 +56,10 @@
 
 - (NSString*) iOSURL {
   return [NSString stringWithFormat:@"instagram://media?id=%@", self.instagramId];
+}
+
+- (WFIGUser*) user {
+  return [[WFIGUser alloc] initWithJSONFragment:self.userData];
 }
 
 

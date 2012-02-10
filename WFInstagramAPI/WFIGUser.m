@@ -25,23 +25,8 @@
   WFIGUser *user = nil;
   WFIGResponse *response = [WFInstagramAPI get:[NSString stringWithFormat:@"/users/%@", userId]];
   if ([response isSuccess]) {
-    user = [[self alloc] init];
     NSDictionary *data = [[response parsedBody] objectForKey:@"data"];
-    user.userId = [data objectForKey:@"id"];
-    user.username = [data objectForKey:@"username"];
-    user.profilePicture = [data objectForKey:@"profile_picture"];
-    user.website = [data objectForKey:@"website"];
-    user.bio = [data objectForKey:@"bio"];
-    user.fullName = [data objectForKey:@"full_name"];
-    
-    NSDictionary *counts = [data objectForKey:@"counts"];
-    user.followsCount = [counts objectForKey:@"follows"];
-    WFIGDASSERT([user.followsCount isKindOfClass:[NSNumber class]]);
-    user.followedByCount = [counts objectForKey:@"followed_by"];
-    WFIGDASSERT([user.followedByCount isKindOfClass:[NSNumber class]]);
-    user.mediaCount = [counts objectForKey:@"media"];
-    WFIGDASSERT([user.mediaCount isKindOfClass:[NSNumber class]]);
-    
+    user = [[self alloc] initWithJSONFragment:data];
     user->_isCurrentUser = [@"self" isEqual:userId];
   } else {
     if (error) {
@@ -51,6 +36,24 @@
     WFIGDLOG(@"response body: %@", [response parsedBody]);
   }
   return user;
+}
+
+- (id) initWithJSONFragment:(NSDictionary*)json {
+  if ((self = [self init])) {
+    self.userId = [json objectForKey:@"id"];
+    self.username = [json objectForKey:@"username"];
+    self.profilePicture = [json objectForKey:@"profile_picture"];
+    self.website = [json objectForKey:@"website"];
+    self.bio = [json objectForKey:@"bio"];
+    self.fullName = [json objectForKey:@"full_name"];
+    
+    //TODO: counts properties on other than explicit user attrs
+    NSDictionary *counts = [json objectForKey:@"counts"];
+    self.followsCount = [counts objectForKey:@"follows"];
+    self.followedByCount = [counts objectForKey:@"followed_by"];
+    self.mediaCount = [counts objectForKey:@"media"];
+  }
+  return self;
 }
 
 - (WFIGMediaCollection*) recentMediaError:(NSError* __autoreleasing*)error; {

@@ -6,7 +6,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class WFIGMedia;  // for the block typedef
+@class WFIGMedia, WFIGUser;  // for the block typedef
 
 typedef void (^WFIGMediaImageCallback)(WFIGMedia *media, UIImage *image);
 
@@ -32,6 +32,7 @@ typedef void (^WFIGMediaImageCallback)(WFIGMedia *media, UIImage *image);
  */
 - (NSString*) iOSURL;
 
+- (WFIGUser*) user;
 
 /**
  * Media methods. Variants with a completion block argument execute

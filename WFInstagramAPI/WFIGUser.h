@@ -24,6 +24,8 @@
 
 + (WFIGUser*) remoteUserWithId:(NSString*)userId error:(NSError* __autoreleasing*)error;
 
+- (id) initWithJSONFragment:(NSDictionary*)json;
+
 - (WFIGMediaCollection*) recentMediaError:(NSError* __autoreleasing*)error;
 
 @end
