@@ -9,15 +9,17 @@
 #import "WFIGFunctions.h"
 #import "WFIGImageCache.h"
 #import "WFIGUser.h"
+#import "WFIGComment.h"
 
-@implementation WFIGMedia
+@implementation WFIGMedia {
+  NSMutableArray *_comments;
+}
 
 @synthesize instagramId, imageURL, thumbnailURL, lowResolutionURL, instagramURL,
-  createdTime, caption, comments, tags, userData, locationData;
+  createdTime, caption, commentsData, tags, userData, locationData;
 
 - (id) init {
   if ((self = [super init])) {
-    self.comments = [NSMutableArray array];
   }
   return self;
 }
@@ -44,8 +46,7 @@
       self.caption = captionInfo;
     }
     
-    //TODO: turn comments into actual comment data
-    //TODO: do....something with likes.
+    self.commentsData = [[json objectForKey:@"comments"] objectForKey:@"data"];
     
     self.tags = [json objectForKey:@"tags"];
     self.userData = [json objectForKey:@"user"];
@@ -60,6 +61,13 @@
 
 - (WFIGUser*) user {
   return [[WFIGUser alloc] initWithJSONFragment:self.userData];
+}
+
+- (NSMutableArray*) comments {
+  if (nil == _comments) {
+    _comments = [WFIGComment commentsWithJSON:self.commentsData];
+  }
+  return _comments;
 }
 
 

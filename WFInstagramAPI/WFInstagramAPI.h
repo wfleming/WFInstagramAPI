@@ -16,6 +16,7 @@
 #import "WFIGUser.h"
 #import "WFIGMedia.h"
 #import "WFIGMediaCollection.h"
+#import "WFIGComment.h"
 
 typedef void (^WFInstagramAPIErrorHandler)(WFIGResponse*);
 
@@ -25,6 +26,13 @@ typedef void (^WFInstagramAPIErrorHandler)(WFIGResponse*);
 + (NSString*) clientId;
 + (void) setClientSecret:(NSString*)clientSecret;
 + (NSString*) clientSecret;
++ (NSString*) clientScope;
+/**
+ * see http://instagram.com/developer/auth/#scope
+ * specify this as a +-separated string of values.
+ * e.g. @"likes+comments"
+ */
++ (void) setClientScope:(NSString*)scope;
 + (void) setOAuthRedirectURL:(NSString*)url;
 + (NSString*)oauthRedirectURL;
 + (void) setAccessToken:(NSString*)accessToken;
@@ -45,10 +53,36 @@ typedef void (^WFInstagramAPIErrorHandler)(WFIGResponse*);
 + (NSString*) endpoint;
 + (NSString*) versionedEndpoint;
 + (NSString*) authURL;
-+ (WFIGResponse *)post:(NSString *)body to:(NSString *)path;
-+ (WFIGResponse *)get:(NSString *)path;
-+ (WFIGResponse *)put:(NSString *)body to:(NSString *)path;
-+ (WFIGResponse *)delete:(NSString *)path;
+
+/**
+ * retrieve the response for a GET request to the given path,
+ * which should be a relative endpoint for the API (e.g. /media/{media-id})
+ */
++ (WFIGResponse *)get:(NSString*)path;
+
+/**
+ * retrieve the response for a POST request to the given path,
+ * which should be a relative endpoint for the API (e.g. /media/{media-id})
+ *
+ * Params will be form encoded for the request. If you require more fine-tuned
+ * control over your request, use +[WFIGConnection requestForMethod:to:]
+ */
++ (WFIGResponse *)post:(NSDictionary*)params to:(NSString*)path;
+
+/**
+ * retrieve the response for a PUT request to the given path,
+ * which should be a relative endpoint for the API (e.g. /media/{media-id})
+ *
+ * Params will be form encoded for the request. If you require more fine-tuned
+ * control over your request, use +[WFIGConnection requestForMethod:to:]
+ */
++ (WFIGResponse *)put:(NSDictionary*)params to:(NSString*)path;
+
+/**
+ * retrieve the response for a DELETE request to the given path,
+ * which should be a relative endpoint for the API (e.g. /media/{media-id})
+ */
++ (WFIGResponse *)delete:(NSString*)path;
 
 + (WFIGUser*)currentUser;
 

@@ -10,6 +10,7 @@
 
 static NSString *g_instagramClientId = nil;
 static NSString *g_instagramClientSecret = nil;
+static NSString *g_instagramClientScope = nil;
 static NSString *g_instagramOAuthRedirectURL = nil;
 static NSString *g_instagramAccessToken = nil;
 static Class<WFIGSerializer> g_instagramSerializer = nil;
@@ -18,6 +19,7 @@ static UIWindow *g_authWindow = nil;
 static WFInstagramAPIErrorHandler g_errorHandler = nil;
 
 @interface WFInstagramAPI (Private)
++ (NSString*) urlForPath:(NSString*)path;
 + (NSString*) signedURLForPath:(NSString*)path;
 @end
 
@@ -44,6 +46,14 @@ static WFInstagramAPIErrorHandler g_errorHandler = nil;
 
 + (NSString*) clientSecret {
   return g_instagramClientSecret;
+}
+
++ (NSString*) clientScope {
+  return g_instagramClientScope;
+}
+
++ (void) setClientScope:(NSString*)scope {
+  g_instagramClientScope = scope;
 }
 
 + (void) setOAuthRedirectURL:(NSString*)url {
@@ -97,22 +107,55 @@ static WFInstagramAPIErrorHandler g_errorHandler = nil;
 }
 
 + (NSString*) authURL {
-  return [NSString stringWithFormat:@"%@/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=code&display=touch",
-          [self endpoint],
-          [self clientId],
-          WFIGURLEncodedString([self oauthRedirectURL])];
-}
-
-+ (WFIGResponse *)post:(NSString *)body to:(NSString *)path {
-  return [WFIGConnection post:body to:[self signedURLForPath:path]];
+  NSMutableString *url = [NSMutableString stringWithFormat:
+                          @"%@/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=code&display=touch",
+                          [self endpoint],
+                          [self clientId],
+                          WFIGURLEncodedString([self oauthRedirectURL])];
+  if (nil != [self clientScope]) {
+    [url appendFormat:@"&scope=%@", [self clientScope]];
+  }
+  return url;
 }
 
 + (WFIGResponse *)get:(NSString *)path {
   return [WFIGConnection get:[self signedURLForPath:path]];
 }
 
-+ (WFIGResponse *)put:(NSString *)body to:(NSString *)path {
-  return [WFIGConnection put:body to:[self signedURLForPath:path]];
++ (WFIGResponse *)post:(NSDictionary*)params to:(NSString *)path {
+  NSString *url = [self urlForPath:path];
+  NSMutableURLRequest *request = [WFIGConnection requestForMethod:@"POST" to:url];
+  
+  [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField: @"Content-Type"];
+  
+  NSMutableString *body = [[NSMutableString alloc] init];
+  for (NSString *key in [params allKeys]) {
+    NSString *val = [params objectForKey:key];
+    [body appendFormat:@"%@=%@&", key, WFIGURLEncodedString(val)];
+  }
+  // POST requests want access token in body
+  [body appendFormat:@"access_token=%@", [self accessToken]];
+  [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+  
+  return [WFIGConnection sendRequest:request];
+}
+
++ (WFIGResponse *)put:(NSDictionary*)params to:(NSString *)path {
+  NSString *url = [self urlForPath:path];
+  NSMutableURLRequest *request = [WFIGConnection requestForMethod:@"PUT" to:url];
+  
+  [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField: @"Content-Type"];
+  
+  NSMutableString *body = [[NSMutableString alloc] init];
+  for (NSString *key in [params allKeys]) {
+    NSString *val = [params objectForKey:key];
+    [body appendFormat:@"%@=%@&", key, WFIGURLEncodedString(val)];
+  }
+  // PUT requests want access token in body
+  [body appendFormat:@"access_token=%@", [self accessToken]];
+  [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+  
+  return [WFIGConnection sendRequest:request];
 }
 
 + (WFIGResponse *)delete:(NSString *)path {
@@ -186,18 +229,22 @@ static WFInstagramAPIErrorHandler g_errorHandler = nil;
 
 #pragma mark -
 @implementation WFInstagramAPI (Private)
++ (NSString*) urlForPath:(NSString*)path {
+  return [NSString stringWithFormat:@"%@%@%@",
+   [self versionedEndpoint],
+   ('/' == [path characterAtIndex:0] ? @"" : @"/"),
+   path];
+}
+
 + (NSString*) signedURLForPath:(NSString*)path {
-  NSMutableString *url = [NSMutableString stringWithFormat:@"%@%@%@",
-                   [self versionedEndpoint],
-                   ('/' == [path characterAtIndex:0] ? @"" : @"/"),
-                   path];
+  NSMutableString *url = [NSMutableString stringWithString:[self urlForPath:path]];
   // append whichever token we have access to
   // append a ? if there are no query params, otherwise a &
   [url appendString:(NSNotFound == [url rangeOfString:@"?"].location ? @"?" : @"&")];
-  if ([WFInstagramAPI accessToken]) {
-    [url appendFormat:@"access_token=%@", [WFInstagramAPI accessToken]];
+  if ([self accessToken]) {
+    [url appendFormat:@"access_token=%@", [self accessToken]];
   } else {
-    [url appendFormat:@"client_id=%@", [WFInstagramAPI clientId]];
+    [url appendFormat:@"client_id=%@", [self clientId]];
   }
   return [NSString stringWithString:url];
 }

@@ -6,7 +6,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class WFIGMedia, WFIGUser;  // for the block typedef
+@class WFIGMedia, WFIGUser;  // for the block typedef & -user return val
 
 typedef void (^WFIGMediaImageCallback)(WFIGMedia *media, UIImage *image);
 
@@ -20,7 +20,7 @@ typedef void (^WFIGMediaImageCallback)(WFIGMedia *media, UIImage *image);
 @property (strong, nonatomic) NSString *instagramURL;  // web url
 @property (strong, nonatomic) NSDate *createdTime;
 @property (strong, nonatomic) NSString *caption;
-@property (strong, nonatomic) NSMutableArray *comments; // array of WFIGComment instances
+@property (strong, nonatomic) NSArray *commentsData; // raw JSON comment data
 @property (strong, nonatomic) NSMutableArray *tags; // array of strings
 @property (strong, nonatomic) NSDictionary *userData;
 @property (strong, nonatomic) NSDictionary *locationData;
@@ -32,7 +32,16 @@ typedef void (^WFIGMediaImageCallback)(WFIGMedia *media, UIImage *image);
  */
 - (NSString*) iOSURL;
 
+/**
+ * instance created from -userData JSON
+ */
 - (WFIGUser*) user;
+
+/**
+ * array of WFIGComment instances, initially
+ * generated from -commentsData JSON
+ */
+- (NSMutableArray*) comments;
 
 /**
  * Media methods. Variants with a completion block argument execute
