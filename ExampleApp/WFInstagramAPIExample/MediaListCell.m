@@ -8,7 +8,7 @@
 
 #import "MediaListCell.h"
 
-const CGFloat kCellMargin = 5.0;
+static CGFloat kCellMargin = 5.0;
 
 @implementation MediaListCell {
   UIImageView *_imageView;

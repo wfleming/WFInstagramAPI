@@ -8,22 +8,47 @@
 
 #import "MediaImageCell.h"
 
-@implementation MediaImageCell
+static CGFloat kCellMargin = 5.0;
+
+@implementation MediaImageCell {
+  UIImageView *_imageView;
+}
+
+@synthesize media;
+
++ (CGFloat) rowHeight {
+//  TODO
+  return 302.0;
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+  if ((self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier])) {
+    _imageView = [[UIImageView alloc] init];
+    [self.contentView addSubview:_imageView];
+  }
+  return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
+- (void) layoutSubviews {
+  [super layoutSubviews];
+  
+  CGFloat imgSize = self.contentView.frame.size.height - (2.0 * kCellMargin);
+  _imageView.frame = CGRectMake(kCellMargin, kCellMargin, imgSize, imgSize);
+  
+  [self.media imageCompletionBlock:^(WFIGMedia* imgMedia, UIImage *img) {
+    if (imgMedia == self.media) {
+      _imageView.image = img;
+    }
+  }];
+}
 
-    // Configure the view for the selected state
+
+- (void)prepareForReuse {
+  [super prepareForReuse];
+  
+  self.media = nil;
+  _imageView.image = nil;
 }
 
 @end

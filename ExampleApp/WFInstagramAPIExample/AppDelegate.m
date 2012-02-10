@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 #import "UserMediaListController.h"
-#import "SecondViewController.h"
+#import "MediaDetailController.h"
 
 NSString * const kDefaultsUserToken = @"user_token";
 NSString * const kOAuthCallbackURL = @"egwfapi://auth";
@@ -65,9 +65,8 @@ NSString * const kOAuthCallbackURL = @"egwfapi://auth";
   // more boilerplate app setup
   UIViewController *vc1 = [[UserMediaListController alloc] initWithWFIGUser:nil];
   UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:vc1];
-  UIViewController *vc2 = [[SecondViewController alloc] initWithNibName:nil bundle:nil];
   self.tabBarController = [[UITabBarController alloc] init];
-  self.tabBarController.viewControllers = [NSArray arrayWithObjects:nav1, vc2, nil];
+  self.tabBarController.viewControllers = [NSArray arrayWithObjects:nav1, nil];
   self.window.rootViewController = self.tabBarController;
   [self.window makeKeyAndVisible];
   return YES;

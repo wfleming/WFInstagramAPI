@@ -10,4 +10,8 @@
 
 @interface MediaImageCell : UITableViewCell
 
++ (CGFloat) rowHeight;
+
+@property (strong, atomic) WFIGMedia *media;
+
 @end

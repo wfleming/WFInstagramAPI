@@ -10,4 +10,8 @@
 
 @interface MediaDetailController : UITableViewController
 
+@property (strong, nonatomic) WFIGMedia *media;
+
+- (id)initWithMedia:(WFIGMedia*)newMedia;
+
 @end

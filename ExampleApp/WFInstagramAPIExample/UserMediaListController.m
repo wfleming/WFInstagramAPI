@@ -7,7 +7,9 @@
 //
 
 #import "UserMediaListController.h"
+
 #import "MediaListCell.h"
+#import "MediaDetailController.h"
 
 @implementation UserMediaListController {
   WFIGUser *_user;
@@ -60,7 +62,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  //TODO: go to detail view
+  WFIGMedia *m = [self.mediaCollection objectAtIndex:indexPath.row];
+  MediaDetailController *c = [[MediaDetailController alloc] initWithMedia:m];
+  [self.navigationController pushViewController:c animated:YES];
 }
 
 #pragma mark - UITableViewDataSource

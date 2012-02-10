@@ -8,17 +8,21 @@
 
 #import "MediaDetailController.h"
 
+#import "MediaImageCell.h"
+
 @interface MediaDetailController ()
 
 @end
 
 @implementation MediaDetailController
 
-- (id)initWithStyle:(UITableViewStyle)style
+@synthesize media;
+
+- (id)initWithMedia:(WFIGMedia*)newMedia
 {
-    self = [super initWithStyle:style];
+    self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        // Custom initialization
+      self.media = newMedia;
     }
     return self;
 }
@@ -50,68 +54,82 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+  /*
+   * 1. photo
+   * 2. meta (byline, date)
+   * 3. description
+   * 4. comments
+   */
+  return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
+  if (1 == section) {
+    return 2;
+  } else if (section <= 2) {
+    return 1;
+  } else {
+    //TODO - comment count
     return 0;
+  }
+}
+
+- (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+  NSString *t = nil;
+  
+  if (3 == section) { // comments
+    t = @"Comments";
+  }
+  
+  return t;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  NSString *reuseId = @"TextCell";
+  UITableViewCell *cell = nil;
+  
+  if (0 == indexPath.section) { // image
+    reuseId = @"ImageCell";
+    cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
+    if (nil == cell) {
+      cell = [[MediaImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
+    }
+    ((MediaImageCell*)cell).media = self.media;
+  } else if (1 == indexPath.section) { // meta (byline, date taken)
+    cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
+    if (nil == cell) {
+      cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
+    }
+    if (0 == indexPath.row) {
+      cell.textLabel.text = [NSString stringWithFormat:@"by %@", self.media.user.username];
+    } else if (1 == indexPath.row) {
+      cell.textLabel.text = [NSString stringWithFormat:@"taken %@", self.media.createdTime];
+    }
     
-    // Configure the cell...
-    
-    return cell;
+  } else if (2 == indexPath.section) { // caption
+    cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
+    if (nil == cell) {
+      cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
+    }
+    cell.textLabel.text = self.media.caption;
+  } else if (3 == indexPath.section) { // comments
+    //TODO
+  }
+  
+  return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  if (0 == indexPath.section) { // image
+    return [MediaImageCell rowHeight];
+  }
+  
+  return [tableView rowHeight];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
