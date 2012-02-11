@@ -57,7 +57,7 @@
   if (nil == self.mediaCollection) {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
       WFIGUser *u = (_user ? _user : [WFInstagramAPI currentUser]);
-      self.mediaCollection = [u recentMediaError:nil];
+      self.mediaCollection = [u recentMediaWithError:nil];
       [self.tableView reloadData];
     });
   }

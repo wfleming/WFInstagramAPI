@@ -783,7 +783,7 @@
   
   WFIGUser *user = [WFInstagramAPI currentUser];
   NSError *err = nil;
-  WFIGMediaCollection *photos = [user recentMediaError:&err];
+  WFIGMediaCollection *photos = [user recentMediaWithError:&err];
 
   STAssertNil(err, @"err should have been nil, but was %@", err);
   STAssertTrue([photos isKindOfClass:[WFIGMediaCollection class]], @"photos should be a media collection, but was: %@", photos);

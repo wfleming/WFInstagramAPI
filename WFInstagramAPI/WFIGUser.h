@@ -26,6 +26,6 @@
 
 - (id) initWithJSONFragment:(NSDictionary*)json;
 
-- (WFIGMediaCollection*) recentMediaError:(NSError* __autoreleasing*)error;
+- (WFIGMediaCollection*) recentMediaWithError:(NSError* __autoreleasing*)error;
 
 @end

@@ -56,7 +56,7 @@
   return self;
 }
 
-- (WFIGMediaCollection*) recentMediaError:(NSError* __autoreleasing*)error; {
+- (WFIGMediaCollection*) recentMediaWithError:(NSError* __autoreleasing*)error; {
   WFIGMediaCollection *media = nil;
   WFIGResponse *response = [WFInstagramAPI get:[NSString stringWithFormat:@"/users/%@/media/recent", [self effectiveApiId]]];
   if ([response isSuccess]) {
