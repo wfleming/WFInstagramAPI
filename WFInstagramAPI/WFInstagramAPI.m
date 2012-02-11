@@ -8,15 +8,15 @@
 
 #import "WFIGFunctions.h"
 
-static NSString *g_instagramClientId = nil;
-static NSString *g_instagramClientSecret = nil;
-static NSString *g_instagramClientScope = nil;
-static NSString *g_instagramOAuthRedirectURL = nil;
-static NSString *g_instagramAccessToken = nil;
-static Class<WFIGSerializer> g_instagramSerializer = nil;
-static WFIGUser *g_instagramCurrentUser = nil;
-static UIWindow *g_authWindow = nil;
-static WFInstagramAPIErrorHandler g_errorHandler = nil;
+NSString *g_instagramClientId = nil;
+NSString *g_instagramClientSecret = nil;
+NSString *g_instagramClientScope = nil;
+NSString *g_instagramOAuthRedirectURL = nil;
+NSString *g_instagramAccessToken = nil;
+Class<WFIGSerializer> g_instagramSerializer = nil;
+WFIGUser *g_instagramCurrentUser = nil;
+UIWindow *g_authWindow = nil;
+WFInstagramAPIErrorHandler g_errorHandler = nil;
 
 @interface WFInstagramAPI (Private)
 + (NSString*) urlForPath:(NSString*)path;
