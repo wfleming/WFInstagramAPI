@@ -8,7 +8,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface SenTestCase (Additions)
+@interface WFIGTestCase : SenTestCase
 
 - (WFIGResponse*) responseWithStatus:(NSInteger)status body:(NSString*)body;
 

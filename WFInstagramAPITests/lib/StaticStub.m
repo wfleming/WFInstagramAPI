@@ -6,17 +6,18 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "StaticMock.h"
+#import "StaticStub.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 
 #pragma mark - private interface
-@interface StaticMock ()
+@interface StaticStub ()
 
 @property (nonatomic, retain) Class klass;
 // { MethodName => StaticStubRecord }
-@property (nonatomic, retain) NSMutableDictionary *currentMocks;
+@property (nonatomic, retain) NSMutableDictionary *currentStubs;
 @property (nonatomic, retain) id currentReturnVal;
+@property (nonatomic, copy) StubBlock currentReturnBlock;
 
 @end
 
@@ -25,49 +26,64 @@
 @interface StaticStubRecord : NSObject
 @property (nonatomic, assign) IMP originalIMP;
 @property (nonatomic, retain) id stubbedReturnValue;
+@property (nonatomic, copy) StubBlock stubbedReturnBlock;
 @end
 
 @implementation StaticStubRecord
-@synthesize originalIMP, stubbedReturnValue;
+@synthesize originalIMP, stubbedReturnValue, stubbedReturnBlock;
 @end
 
 #pragma mark - StaticMock class implementation
-@implementation StaticMock
+@implementation StaticStub
 
-@synthesize klass, currentMocks, currentReturnVal;
+@synthesize klass, currentStubs, currentReturnVal, currentReturnBlock;
 
 #pragma mark - NSProxy implementations
 - (id) init {
-  self.currentMocks = [NSMutableDictionary dictionary];
+  self.currentStubs = [NSMutableDictionary dictionary];
   return self;
 }
 
 - (void) dealloc {
-  [self cancelMocks];
-  self.currentMocks = nil;
+  [self cancelStubs];
+  self.currentStubs = nil;
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
   return [self.klass methodSignatureForSelector:aSelector];
 }
 
-   
 - (void) forwardInvocation:(NSInvocation *)anInvocation {
   Method currentMethod = class_getClassMethod(self.klass, [anInvocation selector]);
-  StaticStubRecord *record = [[StaticStubRecord alloc] init];
+  BOOL newStub = NO;
+  StaticStubRecord *record = [self.currentStubs objectForKey:NSStringFromSelector([anInvocation selector])];
+  if (nil == record) {
+    record = [[StaticStubRecord alloc] init];
+    newStub = YES;
+  }
   record.stubbedReturnValue = self.currentReturnVal;
-  IMP newIMP = imp_implementationWithBlock((__bridge void*)^(id obj) {
-   return record.stubbedReturnValue;
-  });
+  record.stubbedReturnBlock = self.currentReturnBlock;
+  IMP newIMP = nil;
+  if (record.stubbedReturnBlock) {
+    newIMP = imp_implementationWithBlock((__bridge void*)record.stubbedReturnBlock);
+  } else {
+    newIMP = imp_implementationWithBlock((__bridge void*)^(id obj) {
+      return record.stubbedReturnValue;
+    });
+  }
+  
   IMP originalIMP = method_setImplementation(currentMethod, newIMP);
-  record.originalIMP = originalIMP;
+  if (newStub) { // always make sure we'll go back to the real original
+    record.originalIMP = originalIMP;
+  }
 
   // bookkeeping
-  [self.currentMocks setObject:record forKey:NSStringFromSelector([anInvocation selector])];
+  [self.currentStubs setObject:record forKey:NSStringFromSelector([anInvocation selector])];
 }
+
 #pragma mark - StaticMock implementations
-+ (id) mockForClass:(Class)klassToMock {
-  StaticMock *m = [[StaticMock alloc] init];
++ (id) stubForClass:(Class)klassToMock {
+  StaticStub *m = [[StaticStub alloc] init];
   m.klass = klassToMock;
   return m;
 }
@@ -76,15 +92,20 @@
   return self;
 }
 
-- (StaticMock*) andReturn:(id)anObject {
+- (StaticStub*) andReturn:(id)anObject {
   self.currentReturnVal = anObject;
   return self;
 }
 
-- (void) cancelMocks {
-  NSArray *mockedSels = [self.currentMocks allKeys];
+- (StaticStub*) andDo:(StubBlock)aBlock {
+  self.currentReturnBlock = aBlock;
+  return self;
+}
+
+- (void) cancelStubs {
+  NSArray *mockedSels = [self.currentStubs allKeys];
   for (NSString *selStr in mockedSels) {
-    StaticStubRecord *record = [self.currentMocks objectForKey:selStr];
+    StaticStubRecord *record = [self.currentStubs objectForKey:selStr];
     Method currentMethod = class_getClassMethod(self.klass, NSSelectorFromString(selStr));
     IMP blockIMP = method_setImplementation(currentMethod, record.originalIMP);
     imp_removeBlock(blockIMP); // cleanup the block

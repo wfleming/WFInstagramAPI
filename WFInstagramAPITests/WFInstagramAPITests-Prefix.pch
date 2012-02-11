@@ -11,6 +11,8 @@
 #import "WFInstagramAPI.h"
 
 #import <OCMock/OCMock.h>
-#import "StaticMock.h"
+#import "StaticStub.h"
 
-#import "SenTestCaseAdditions.h"
+#import "WFIGTestCase.h"
+
+#import "StubNSURLConnection.h"

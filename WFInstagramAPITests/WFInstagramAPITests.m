@@ -9,18 +9,20 @@
 @implementation WFInstagramAPITests
 
 // less a test of InstagramAPI, and more a sanity check on my StaticMock
-- (void)testStaticMocking
+- (void)testStaticStubbing
 {
-  StaticMock *m = [StaticMock mockForClass:[WFInstagramAPI class]];
-  [[[m stub] andReturn:@"foo"] clientId];
+  [WFInstagramAPI setClientId:@"bar"];
+  
+  StaticStub *stub = [StaticStub stubForClass:[WFInstagramAPI class]];
+  [[[stub stub] andReturn:@"foo"] clientId];
   
   NSString *rv = [WFInstagramAPI clientId];
   STAssertEqualObjects(@"foo", rv, @"stubbed value should be return");
   
-  [m cancelMocks];
+  [stub cancelStubs];
   
   rv = [WFInstagramAPI clientId];
-  STAssertEqualObjects(nil, rv, @"stubbed value should be gone");
+  STAssertEqualObjects(@"bar", rv, @"stubbed value should be gone");
 }
 
 /**
@@ -51,36 +53,11 @@
 //  [connMock cancelMocks];
 //}
 
-- (void) testCurrentUser {    
-  StaticMock *connMock = [StaticMock mockForClass:[WFIGConnection class]];
-  WFIGResponse *mockResp = [self responseWithStatus:200
-                                               body:
-                            @"{"
-                            "  \"meta\":  {"
-                            "    \"code\": 200"
-                            "  },"
-                            "  \"data\":  {"
-                            "    \"username\": \"thorisalaptop\","
-                            "    \"bio\": \"was born, still living\","
-                            "    \"website\": \"http://jwock.org\","
-                            "    \"profile_picture\": \"http://images.instagram.com/profiles/profile_980428_75sq_1291961825.jpg\","
-                            "    \"full_name\": \"Will Fleming\","
-                            "    \"counts\":  {"
-                            "      \"media\": 10,"
-                            "      \"followed_by\": 32,"
-                            "      \"follows\": 17"
-                            "    },"
-                            "    \"id\": \"980428\""
-                            "  }"
-                            "}"];
-  [[[connMock stub] andReturn:mockResp] sendRequest:[OCMArg any]];
-  
+- (void) testCurrentUser {      
   WFIGUser *user = [WFInstagramAPI currentUser];
   
-  STAssertTrue([user isKindOfClass:[WFIGUser class]], @"user was not fetched/inorrect class");
-  STAssertEqualObjects(@"thorisalaptop", user.username, @"bad parsing");
-  
-  [connMock cancelMocks];
+  STAssertTrue([user isKindOfClass:[WFIGUser class]], @"user was not fetched/inorrect class. user is %@", user);
+  STAssertEqualObjects(user.username, @"thorisalaptop", @"bad parsing");
 }
 
 @end

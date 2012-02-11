@@ -8,14 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface StaticMock : NSProxy
+typedef void* (^StubBlock)(void);
 
-+ (id) mockForClass:(Class)klassToMock;
+@interface StaticStub : NSProxy
+
++ (id) stubForClass:(Class)klassToMock;
 
 - (id) stub;
 
-- (StaticMock*) andReturn:(id)anObject;
+- (StaticStub*) andReturn:(id)anObject;
+- (StaticStub*) andDo:(StubBlock)aBlock;
 
-- (void) cancelMocks;
+- (void) cancelStubs;
 
 @end

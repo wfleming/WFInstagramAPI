@@ -57,5 +57,10 @@
                        user.followsCount, @"wrong follows count");
 }
 
+- (void) testPhotoFetching {
+  //TODO
+  STAssertTrue(NO, @"not implemented");
+}
+
 
 @end
