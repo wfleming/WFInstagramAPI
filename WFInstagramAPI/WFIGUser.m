@@ -18,7 +18,7 @@
 #pragma mark -
 @implementation WFIGUser
 
-@synthesize username, userId, profilePicture, website, fullName, bio,
+@synthesize username, instagramId, profilePicture, website, fullName, bio,
   followedByCount, followsCount, mediaCount;
 
 + (WFIGUser*) remoteUserWithId:(NSString*)userId error:(NSError* __autoreleasing*)error {
@@ -40,7 +40,7 @@
 
 - (id) initWithJSONFragment:(NSDictionary*)json {
   if ((self = [self init])) {
-    self.userId = [json objectForKey:@"id"];
+    self.instagramId = [json objectForKey:@"id"];
     self.username = [json objectForKey:@"username"];
     self.profilePicture = [json objectForKey:@"profile_picture"];
     self.website = [json objectForKey:@"website"];
@@ -77,6 +77,6 @@
 #pragma mark -
 @implementation WFIGUser (Private)
 - (NSString*) effectiveApiId {
-  return (_isCurrentUser ? @"self" : self.userId);
+  return (_isCurrentUser ? @"self" : self.instagramId);
 }
 @end

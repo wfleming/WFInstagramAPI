@@ -752,7 +752,7 @@
   NSDictionary *json = [self basicUserJSON];
   WFIGUser *user = [[WFIGUser alloc] initWithJSONFragment:json];
   
-  STAssertEqualObjects([json objectForKey:@"id"], user.userId,
+  STAssertEqualObjects([json objectForKey:@"id"], user.instagramId,
                        @"incorrect instagram ID");
   STAssertEqualObjects([json objectForKey:@"website"], user.website,
                        @"incorrrect web link");

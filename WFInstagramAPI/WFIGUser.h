@@ -13,7 +13,7 @@
 }
 
 @property (strong, nonatomic) NSString *username;
-@property (strong, nonatomic) NSString *userId;
+@property (strong, nonatomic) NSString *instagramId;
 @property (strong, nonatomic) NSString *profilePicture;
 @property (strong, nonatomic) NSString *website;
 @property (strong, nonatomic) NSString *fullName;
