@@ -6,8 +6,6 @@
 
 #import "WFIGMediaTest.h"
 
-#import "WFIGMedia.h"
-
 @implementation WFIGMediaTest
 
 #pragma mark - utility methods
