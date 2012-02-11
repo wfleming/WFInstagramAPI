@@ -788,6 +788,7 @@
   STAssertNil(err, @"err should have been nil, but was %@", err);
   STAssertTrue([photos isKindOfClass:[WFIGMediaCollection class]], @"photos should be a media collection, but was: %@", photos);
   STAssertEquals((NSUInteger)10, [photos count], @"count was %d, was expected to be 10", [photos count]);
+  STAssertFalse([photos hasNextPage], @"should not have a next page");
   
   WFIGMedia *media = [photos objectAtIndex:0];
   STAssertTrue([media isKindOfClass:[WFIGMedia class]], @"first media should be a media, but was: %@", media);

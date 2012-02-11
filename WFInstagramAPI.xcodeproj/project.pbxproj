@@ -14,6 +14,7 @@
 		BE21949314E5F4D800C84A70 /* WFIGTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21949214E5F4D800C84A70 /* WFIGTestCase.m */; };
 		BE2194A114E6DB3700C84A70 /* StubNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2194A014E6DB3700C84A70 /* StubNSURLConnection.m */; };
 		BE29466814E5F07D007EF730 /* WFIGUserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE29466714E5F07D007EF730 /* WFIGUserTest.m */; };
+		BE45C62114E72BFE00F8DD20 /* WFIGMediaCollectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45C62014E72BFE00F8DD20 /* WFIGMediaCollectionTest.m */; };
 		BE6F2D1714C1F2B600F4AC83 /* WFIGMediaTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6F2D0814C1EAEB00F4AC83 /* WFIGMediaTest.m */; };
 		BE6F2D1814C1F2E100F4AC83 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E2C314C12E78006910C5 /* UIKit.framework */; };
 		BE88E23214C12548006910C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E23114C12548006910C5 /* Foundation.framework */; };
@@ -74,6 +75,8 @@
 		BE2194A014E6DB3700C84A70 /* StubNSURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubNSURLConnection.m; sourceTree = "<group>"; };
 		BE29466614E5F07D007EF730 /* WFIGUserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGUserTest.h; sourceTree = "<group>"; };
 		BE29466714E5F07D007EF730 /* WFIGUserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGUserTest.m; sourceTree = "<group>"; };
+		BE45C61F14E72BFE00F8DD20 /* WFIGMediaCollectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGMediaCollectionTest.h; sourceTree = "<group>"; };
+		BE45C62014E72BFE00F8DD20 /* WFIGMediaCollectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGMediaCollectionTest.m; sourceTree = "<group>"; };
 		BE6F2D0714C1EAEB00F4AC83 /* WFIGMediaTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFIGMediaTest.h; sourceTree = "<group>"; };
 		BE6F2D0814C1EAEB00F4AC83 /* WFIGMediaTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFIGMediaTest.m; sourceTree = "<group>"; };
 		BE88E22E14C12548006910C5 /* libWFInstagramAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWFInstagramAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +209,8 @@
 				BE6F2D0814C1EAEB00F4AC83 /* WFIGMediaTest.m */,
 				BE29466614E5F07D007EF730 /* WFIGUserTest.h */,
 				BE29466714E5F07D007EF730 /* WFIGUserTest.m */,
+				BE45C61F14E72BFE00F8DD20 /* WFIGMediaCollectionTest.h */,
+				BE45C62014E72BFE00F8DD20 /* WFIGMediaCollectionTest.m */,
 				BE18925314C20A300085A01E /* WFIGDefaultSerializerTest.h */,
 				BE18925414C20A300085A01E /* WFIGDefaultSerializerTest.m */,
 				BE88E34A14C1E018006910C5 /* WFIGFunctionsTest.h */,
@@ -420,6 +425,7 @@
 				BE29466814E5F07D007EF730 /* WFIGUserTest.m in Sources */,
 				BE21949314E5F4D800C84A70 /* WFIGTestCase.m in Sources */,
 				BE2194A114E6DB3700C84A70 /* StubNSURLConnection.m in Sources */,
+				BE45C62114E72BFE00F8DD20 /* WFIGMediaCollectionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
