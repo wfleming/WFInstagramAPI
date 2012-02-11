@@ -10,8 +10,10 @@
 
 #import "StubNSURLConnection.h"
 
+extern WFIGUser *g_instagramCurrentUser;
+
 @implementation WFIGTestCase {
-  
+
 }
 
 - (void) setUp {
@@ -45,6 +47,10 @@
 
 - (void) tearDown {
   [StubNSURLConnection stopStubbing];
+  
+  // state that should be reset after all tests
+  [WFInstagramAPI setGlobalErrorHandler:nil];
+  g_instagramCurrentUser = nil;
 }
 
 - (WFIGResponse*) responseWithStatus:(NSInteger)status body:(NSString*)body {

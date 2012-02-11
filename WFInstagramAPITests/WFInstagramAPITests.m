@@ -25,33 +25,24 @@
   STAssertEqualObjects(@"bar", rv, @"stubbed value should be gone");
 }
 
-/**
- * this test isn't really feasible because of how WFIGConnection is designed,
- * how the global error handler works, and how rough mocking/stubbing is
- * in ObjC
- */
-//- (void) testGlobalErrorHandler {
-//  __block int blockCalled = 0;
-//  [WFInstagramAPI setGlobalErrorHandler:^(WFIGResponse* response) {
-//    blockCalled++;
-//  }];
-//  
-//  StaticMock *connMock = [StaticMock mockForClass:[WFIGConnection class]];
-//  WFIGResponse *mockResp = [self responseWithStatus:400
-//                                               body:
-//                            @"{\"meta\": {"
-//                              "\"error_type\": \"OAuthParameterException\","
-//                              "\"code\": 400,"
-//                              "\"error_message\":\"full error message\""
-//                            "}"];
-//  [[[connMock stub] andReturn:mockResp] sendRequest:[OCMArg any]];
-//  
-//  [WFInstagramAPI currentUser];
-//  
-//  STAssertTrue((blockCalled > 0), @"error handler should have been called");
-//  
-//  [connMock cancelMocks];
-//}
+- (void) testGlobalErrorHandler {
+  __block int blockCalled = 0;
+  [WFInstagramAPI setGlobalErrorHandler:^(WFIGResponse* response) {
+    blockCalled++;
+  }];
+  
+  [StubNSURLConnection stubResponse:400
+                               body:@"{\"meta\": {"
+                                     "\"error_type\": \"OAuthParameterException\","
+                                     "\"code\": 400,"
+                                     "\"error_message\":\"full error message\""
+                                     "}"
+                             forURL:@"https://api.instagram.com/v1/users/self?access_token=testAccessToken"];
+  
+  [WFInstagramAPI currentUser];
+  
+  STAssertTrue((blockCalled > 0), @"error handler should have been called");
+}
 
 - (void) testCurrentUser {      
   WFIGUser *user = [WFInstagramAPI currentUser];
