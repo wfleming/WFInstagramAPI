@@ -16,7 +16,7 @@
   UIView<WFIGAuthInitialView> *_initialView;
 }
 
-+ (void) setInitialViewClass:(Class)viewClass;
++ (void) setInitialViewClass:(Class<WFIGAuthInitialView>)viewClass;
 
 - (IBAction)gotoInstagramAuthURL:(id)sender;
 

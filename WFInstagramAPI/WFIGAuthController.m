@@ -22,7 +22,7 @@
 
 Class initialViewClass = NULL;
 
-+ (void) setInitialViewClass:(Class)viewClass {
++ (void) setInitialViewClass:(Class<WFIGAuthInitialView>)viewClass {
   initialViewClass = viewClass;
 }
 
