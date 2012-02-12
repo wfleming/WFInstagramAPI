@@ -60,7 +60,7 @@ Once you've got your basic client info set up & a user authenticated, you're fin
 
 ### Further Details
 
-The example project attempts to demonstrate usage of most aspects of the API, and is useful as a reference. Note that the example project has its own `README`, which you should read, as it requires some of its own setup to use.
+The example project attempts to demonstrate usage of most aspects of the API, and is useful as a reference. Note that the example project has its own `README`, which you should read, as it requires some of its own setup to use. It's also *not* intended to be any kind of reference for general best practices: for expediency, I skip all kinds of niceties like error checking in there.
 
 The project's header files, particularly under the **Models** group, are the best reference to available methods and to understand how to interact with available data.
 
