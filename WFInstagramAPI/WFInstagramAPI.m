@@ -98,18 +98,18 @@ WFInstagramAPIErrorHandler g_errorHandler = nil;
 
 
 #pragma mark - URLs
-+ (NSString*) endpoint {
++ (NSString*) baseURL {
   return @"https://api.instagram.com";
 }
 
-+ (NSString*) versionedEndpoint {
-  return [NSString stringWithFormat:@"%@/v1", [self endpoint]];
++ (NSString*) versionedBaseURL {
+  return [NSString stringWithFormat:@"%@/v1", [self baseURL]];
 }
 
 + (NSString*) authURL {
   NSMutableString *url = [NSMutableString stringWithFormat:
                           @"%@/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=code&display=touch",
-                          [self endpoint],
+                          [self baseURL],
                           [self clientId],
                           WFIGURLEncodedString([self oauthRedirectURL])];
   if (nil != [self clientScope]) {
@@ -184,7 +184,7 @@ WFInstagramAPIErrorHandler g_errorHandler = nil;
     return;
   }
   
-  // nothing more required -- +currentUser will enter flow if needed
+  [self enterAuthFlow];
 }
 
 + (void) enterAuthFlow {
@@ -206,7 +206,7 @@ WFInstagramAPIErrorHandler g_errorHandler = nil;
 }
 
 + (WFIGResponse*) accessTokenForCode:(NSString*)code {
-  NSString *url = [NSString stringWithFormat:@"%@/oauth/access_token", [self endpoint]];
+  NSString *url = [NSString stringWithFormat:@"%@/oauth/access_token", [self baseURL]];
   NSMutableURLRequest *request = [WFIGConnection requestForMethod:@"POST" to:url];
   
   [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField: @"Content-Type"];
@@ -229,7 +229,7 @@ WFInstagramAPIErrorHandler g_errorHandler = nil;
 @implementation WFInstagramAPI (Private)
 + (NSString*) urlForPath:(NSString*)path {
   return [NSString stringWithFormat:@"%@%@%@",
-   [self versionedEndpoint],
+   [self versionedBaseURL],
    ('/' == [path characterAtIndex:0] ? @"" : @"/"),
    path];
 }

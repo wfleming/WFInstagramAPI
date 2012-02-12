@@ -50,8 +50,21 @@ typedef void (^WFInstagramAPIErrorHandler)(WFIGResponse*);
 + (WFInstagramAPIErrorHandler)globalErrorHandler;
 + (void) setGlobalErrorHandler:(WFInstagramAPIErrorHandler)block;
 
-+ (NSString*) endpoint;
-+ (NSString*) versionedEndpoint;
+/**
+ * The base API URL for *all* Instagram API URLs,
+ * including auth URLs, etc.
+ */
++ (NSString*) baseURL;
+
+/**
+ * The base URL for versioned API endpoints
+ * (i.e. most API endpoints)
+ */
++ (NSString*) versionedBaseURL;
+
+/**
+ * The OAuth URL to enter the OAuth flow.
+ */
 + (NSString*) authURL;
 
 /**
@@ -84,6 +97,8 @@ typedef void (^WFInstagramAPIErrorHandler)(WFIGResponse*);
  */
 + (WFIGResponse *)delete:(NSString*)path;
 
+/**
+ */
 + (WFIGUser*)currentUser;
 
 /**
