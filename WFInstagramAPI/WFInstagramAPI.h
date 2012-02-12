@@ -18,8 +18,6 @@
 #import "WFIGMediaCollection.h"
 #import "WFIGComment.h"
 
-typedef void (^WFInstagramAPIErrorHandler)(WFIGResponse*);
-
 @interface WFInstagramAPI : NSObject
 
 + (void) setClientId:(NSString*)clientId;
@@ -41,14 +39,6 @@ typedef void (^WFInstagramAPIErrorHandler)(WFIGResponse*);
 + (Class<WFIGSerializer>) serializer;
 + (UIWindow*) authWindow;
 + (void) setAuthWindow:(UIWindow*)window;
-
-/**
- * NB - there is no guarantee about what thread this handler will be run on.
- * If you do any UI manipulation (i.e. display an error) in this handler,
- * you should ensure that code runs on the main thread.
- */
-+ (WFInstagramAPIErrorHandler)globalErrorHandler;
-+ (void) setGlobalErrorHandler:(WFInstagramAPIErrorHandler)block;
 
 /**
  * The base API URL for *all* Instagram API URLs,

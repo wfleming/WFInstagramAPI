@@ -16,7 +16,6 @@ NSString *g_instagramAccessToken = nil;
 Class<WFIGSerializer> g_instagramSerializer = nil;
 WFIGUser *g_instagramCurrentUser = nil;
 UIWindow *g_authWindow = nil;
-WFInstagramAPIErrorHandler g_errorHandler = nil;
 
 @interface WFInstagramAPI (Private)
 + (NSString*) urlForPath:(NSString*)path;
@@ -87,15 +86,6 @@ WFInstagramAPIErrorHandler g_errorHandler = nil;
 + (void) setAuthWindow:(UIWindow*)window {
   g_authWindow = window;
 }
-
-+ (WFInstagramAPIErrorHandler)globalErrorHandler {
-  return g_errorHandler;
-}
-
-+ (void) setGlobalErrorHandler:(WFInstagramAPIErrorHandler)block {
-  g_errorHandler = [block copy];
-}
-
 
 #pragma mark - URLs
 + (NSString*) baseURL {

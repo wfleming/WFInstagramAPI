@@ -11,6 +11,8 @@
 
 @class WFIGResponse;
 
+typedef void (^WFInstagramAPIErrorHandler)(WFIGResponse*);
+
 @interface WFIGConnection : NSObject
 
 + (WFIGResponse *)post:(NSString *)body to:(NSString *)url;
@@ -18,11 +20,19 @@
 + (WFIGResponse *)put:(NSString *)body to:(NSString *)url;
 + (WFIGResponse *)delete:(NSString *)url;
 
-// public so it can be overriden
+
 + (WFIGResponse *)sendRequest:(NSMutableURLRequest *)request;
 + (NSMutableURLRequest*) requestForMethod:(NSString *)method to:(NSString *)url;
 
 + (void) cancelAllActiveConnections;
+
+/**
+ * NB - there is no guarantee about what thread this handler will be run on.
+ * If you do any UI manipulation (i.e. display an error) in this handler,
+ * you should ensure that code runs on the main thread.
+ */
++ (WFInstagramAPIErrorHandler)globalErrorHandler;
++ (void) setGlobalErrorHandler:(WFInstagramAPIErrorHandler)block;
 
 
 @end

@@ -35,7 +35,7 @@ NSString * const kOAuthCallbackURL = @"egwfapi://auth";
   [WFInstagramAPI setClientSecret:[plist objectForKey:@"secret"]];
   [WFInstagramAPI setClientScope:@"likes+relationships+comments"];
   [WFInstagramAPI setOAuthRedirectURL:kOAuthCallbackURL];
-  [WFInstagramAPI setGlobalErrorHandler:^(WFIGResponse* response) {
+  [WFIGConnection setGlobalErrorHandler:^(WFIGResponse* response) {
     void (^logicBlock)(WFIGResponse*) = ^(WFIGResponse *response){
       switch ([response error].code) {
         case WFIGErrorOAuthException:

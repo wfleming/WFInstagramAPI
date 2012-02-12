@@ -10,6 +10,8 @@
 #import "WFIGResponse.h"
 #import "WFInstagramAPI.h"
 
+static WFInstagramAPIErrorHandler g_errorHandler = nil;
+
 @implementation WFIGConnection
 
 static float timeoutInterval = 10.0;
@@ -29,6 +31,24 @@ static NSString * const kRunLoopMode = @"com.willfleming.instagram.connectionLoo
 	return activeDelegates;
 }
 
++ (WFIGResponse *)sendBy:(NSString *)method withDataBody:(NSData *)body to:(NSString *)url {
+  NSMutableURLRequest * request = [self requestForMethod:method to:url];
+	[request setHTTPBody:body];
+  
+	return [self sendRequest:request];
+}
+
++ (WFIGResponse *)sendBy:(NSString *)method withBody:(NSString *)body to:(NSString *)url {
+  return [self sendBy:method withDataBody:[body dataUsingEncoding:NSUTF8StringEncoding] to:url];
+}
+
++ (WFIGResponse *)postData:(NSData *)body to:(NSString *)url {
+  return [self sendBy:@"POST" withDataBody:body to:url];
+}
+
+
+#pragma mark - public methods
+
 + (WFIGResponse *)sendRequest:(NSMutableURLRequest *)request {
 	WFIGConnectionDelegate *connectionDelegate = [[WFIGConnectionDelegate alloc] init];
   
@@ -46,15 +66,15 @@ static NSString * const kRunLoopMode = @"com.willfleming.instagram.connectionLoo
 		[[NSRunLoop currentRunLoop] runMode:kRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:.3]];
 	}
 	WFIGResponse *resp = [WFIGResponse responseFrom:(NSHTTPURLResponse *)connectionDelegate.response 
-                                 withBody:connectionDelegate.data 
-                                 andError:connectionDelegate.error];
+                                         withBody:connectionDelegate.data 
+                                         andError:connectionDelegate.error];
 	
   @synchronized([self activeDelegates]) {
     [activeDelegates removeObject:connectionDelegate];
   }
   
-  if ([resp isError] && [WFInstagramAPI globalErrorHandler]) {
-    [WFInstagramAPI globalErrorHandler](resp);
+  if ([resp isError] && [self globalErrorHandler]) {
+    [self globalErrorHandler](resp);
   }
 	
 	return resp;
@@ -68,22 +88,6 @@ static NSString * const kRunLoopMode = @"com.willfleming.instagram.connectionLoo
   [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];	
   [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
   return request;
-}
-
-+ (WFIGResponse *)sendBy:(NSString *)method withDataBody:(NSData *)body to:(NSString *)url {
-  NSMutableURLRequest * request = [self requestForMethod:method to:url];
-	[request setHTTPBody:body];
-  
-	return [self sendRequest:request];
-}
-
-+ (WFIGResponse *)sendBy:(NSString *)method withBody:(NSString *)body to:(NSString *)url {
-  return [self sendBy:method withDataBody:[body dataUsingEncoding:NSUTF8StringEncoding] to:url];
-}
-
-#pragma mark - public methods
-+ (WFIGResponse *)postData:(NSData *)body to:(NSString *)url {
-  return [self sendBy:@"POST" withDataBody:body to:url];
 }
 
 + (WFIGResponse *)post:(NSString *)body to:(NSString *)url {
@@ -109,6 +113,14 @@ static NSString * const kRunLoopMode = @"com.willfleming.instagram.connectionLoo
     }
     [activeDelegates removeAllObjects];
   }
+}
+
++ (WFInstagramAPIErrorHandler)globalErrorHandler {
+  return g_errorHandler;
+}
+
++ (void) setGlobalErrorHandler:(WFInstagramAPIErrorHandler)block {
+  g_errorHandler = [block copy];
 }
 
 @end
