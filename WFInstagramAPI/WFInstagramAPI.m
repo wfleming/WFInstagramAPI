@@ -126,16 +126,11 @@ WFInstagramAPIErrorHandler g_errorHandler = nil;
   NSString *url = [self urlForPath:path];
   NSMutableURLRequest *request = [WFIGConnection requestForMethod:@"POST" to:url];
   
-  [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField: @"Content-Type"];
-  
-  NSMutableString *body = [[NSMutableString alloc] init];
-  for (NSString *key in [params allKeys]) {
-    NSString *val = [params objectForKey:key];
-    [body appendFormat:@"%@=%@&", key, WFIGURLEncodedString(val)];
-  }
   // POST requests want access token in body
-  [body appendFormat:@"access_token=%@", [self accessToken]];
-  [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+  NSMutableDictionary *mutableParams = [NSMutableDictionary dictionaryWithDictionary:params];
+  [mutableParams setValue:[self accessToken] forKey:@"access_token"];
+  
+  WFIGFormEncodeBodyOnRequest(request, mutableParams);
   
   return [WFIGConnection sendRequest:request];
 }
@@ -144,16 +139,11 @@ WFInstagramAPIErrorHandler g_errorHandler = nil;
   NSString *url = [self urlForPath:path];
   NSMutableURLRequest *request = [WFIGConnection requestForMethod:@"PUT" to:url];
   
-  [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField: @"Content-Type"];
-  
-  NSMutableString *body = [[NSMutableString alloc] init];
-  for (NSString *key in [params allKeys]) {
-    NSString *val = [params objectForKey:key];
-    [body appendFormat:@"%@=%@&", key, WFIGURLEncodedString(val)];
-  }
   // PUT requests want access token in body
-  [body appendFormat:@"access_token=%@", [self accessToken]];
-  [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+  NSMutableDictionary *mutableParams = [NSMutableDictionary dictionaryWithDictionary:params];
+  [mutableParams setValue:[self accessToken] forKey:@"access_token"];
+  
+  WFIGFormEncodeBodyOnRequest(request, mutableParams);
   
   return [WFIGConnection sendRequest:request];
 }

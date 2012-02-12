@@ -46,3 +46,14 @@ NSString* WFIGURLEncodedString(NSString *str) {
   
   return out;
 }
+
+void WFIGFormEncodeBodyOnRequest(NSMutableURLRequest *request, NSDictionary *params) {
+  [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField: @"Content-Type"];
+  
+  NSMutableString *body = [[NSMutableString alloc] init];
+  for (NSString *key in [params allKeys]) {
+    NSString *val = [params objectForKey:key];
+    [body appendFormat:@"%@=%@&", key, WFIGURLEncodedString(val)];
+  }
+  [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+}

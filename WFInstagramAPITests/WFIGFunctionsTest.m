@@ -39,4 +39,29 @@
   STAssertTrue([expected isEqual:WFIGURLEncodedString(orig)], @"encoded did not match expected");
 }
 
+- (void) testFormEncodeBodyOnRequest {
+  NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                         @"val1", @"key1",
+                         @"val2", @"key2",
+                         @"val+3", @"key3",
+                         nil];
+  NSURL *url = [NSURL URLWithString:@"http://foo.bar/path"];
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+  
+  NSArray *expectedBodyChunks = [[NSArray arrayWithObjects:@"key1=val1",
+                                   @"key2=val2",
+                                   @"key3=val%2B3",
+                                   @"", //because of trailing &
+                                   nil] sortedArrayUsingSelector:@selector(compare:)];
+  
+  WFIGFormEncodeBodyOnRequest(request, params);
+  
+  STAssertEqualObjects(@"application/x-www-form-urlencoded",
+                       [request valueForHTTPHeaderField:@"Content-Type"],
+                       @"wrong Content-Type header");
+  NSString *body = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
+  NSArray *bodyChunks = [[body componentsSeparatedByString:@"&"] sortedArrayUsingSelector:@selector(compare:)];
+  STAssertEqualObjects(expectedBodyChunks, bodyChunks, @"expected: %@, got: %@", expectedBodyChunks, bodyChunks);
+}
+
 @end

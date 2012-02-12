@@ -22,4 +22,11 @@ NSDate* WFIGDateFromJSONString(NSString* str);
  */
 NSString* WFIGURLEncodedString(NSString *str);
 
+/**
+ * Encodes the given `params` according as `application/x-www-form-urlencoded values`,
+ * sets the result as the `request`'s body, and set's the `request`'s `Content-Type`
+ * header to `application/x-www-form-urlencoded'
+ */
+void WFIGFormEncodeBodyOnRequest(NSMutableURLRequest *request, NSDictionary *params);
+
 #endif
