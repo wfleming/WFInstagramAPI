@@ -11,7 +11,15 @@
 #import "MediaListCell.h"
 #import "MediaDetailController.h"
 
-@implementation BaseMediaListController
+@interface BaseMediaListController ()
+
+- (void) loadMore;
+  
+@end
+
+@implementation BaseMediaListController {
+  BOOL _isLoadingMore;
+}
 
 @synthesize mediaCollection;
 
@@ -19,6 +27,7 @@
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
+    _isLoadingMore = NO;
     // so we can reload data after coming back from auth flow
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidBecomeKey:) name:UIWindowDidBecomeKeyNotification object:self.view.window];
   }
@@ -61,15 +70,27 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  WFIGMedia *m = [self.mediaCollection objectAtIndex:indexPath.row];
-  MediaDetailController *c = [[MediaDetailController alloc] initWithMedia:m];
-  [self.navigationController pushViewController:c animated:YES];
+  if (nil == self.mediaCollection) {
+    return;
+  }
+  
+  if (indexPath.row < [self.mediaCollection count]) { // go to media detail
+    WFIGMedia *m = [self.mediaCollection objectAtIndex:indexPath.row];
+    MediaDetailController *c = [[MediaDetailController alloc] initWithMedia:m];
+    [self.navigationController pushViewController:c animated:YES];
+  } else { // load more
+    [self loadMore];
+  }
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return ( nil == self.mediaCollection ? 1 : [self.mediaCollection count] ); 
+  if (nil == self.mediaCollection) {
+    return 1; // loading cell
+  } else {
+    return [self.mediaCollection count] + ([self.mediaCollection hasNextPage] ? 1 : 0);
+  }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -81,17 +102,37 @@
     }
     cell.textLabel.text = @"Loading...";
   } else {
-    WFIGMedia *photo = [self.mediaCollection objectAtIndex:indexPath.row];
-    cell = [tableView dequeueReusableCellWithIdentifier:@"MediaCell"];
-    if (nil == cell) {
-      cell = [[MediaListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MediaCell"];
+    if (indexPath.row < [self.mediaCollection count]) {
+      WFIGMedia *photo = [self.mediaCollection objectAtIndex:indexPath.row];
+      cell = [tableView dequeueReusableCellWithIdentifier:@"MediaCell"];
+      if (nil == cell) {
+        cell = [[MediaListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MediaCell"];
+      }
+      ((MediaListCell*)cell).media = photo;
+    } else {
+      cell = [tableView dequeueReusableCellWithIdentifier:@"LoadMoreCell"];
+      if (nil == cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LoadMoreCell"];
+      }
+      cell.textLabel.text = (_isLoadingMore ? @"Loading More..." : @"Load More");
     }
-    ((MediaListCell*)cell).media = photo;
-    
-    //TODO: add an extra cell to load more photos
   }
   return cell;
 }
 
+#pragma mark - private methods
+
+- (void) loadMore {
+  _isLoadingMore = YES;
+  NSIndexPath *loadMoreIndexPath = [NSIndexPath indexPathForRow:[self.mediaCollection count] inSection:0];
+  [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:loadMoreIndexPath]
+                        withRowAnimation:UITableViewRowAnimationLeft];
+  
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    [self.mediaCollection loadAndMergeNextPageWithError:NULL];
+    [self.tableView reloadData];
+    _isLoadingMore = NO;
+  });
+}
 
 @end
