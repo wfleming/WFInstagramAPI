@@ -7,13 +7,13 @@ WFInstagramAPI is an Objective-C iOS library for interacting with [Instagram's A
 1. Clone the project locally
 2. Drag WFInstagramAPI.xcodeproj to your project's *Frameworks group*.
 
-   ![Your Frameworks Group](readme_assets/add_to_frameworks.png)
+   ![Your Frameworks Group](https://github.com/wfleming/WFinstagramAPI/raw/master/readme_assets/add_to_frameworks.png)
 3. Open your project's settings, to the **Build Phases** tab, open the **Link Binary With Libraries** section, Click the **+** button, and add **libWFInstagramAPI.a**
 
-   ![Project Dependencies](readme_assets/add_dependency.png)
+   ![Project Dependencies](https://github.com/wfleming/WFinstagramAPI/raw/master/readme_assets/add_dependency.png)
 4. Go to the **Build Settings** tab, find the **Header Search Paths** setting, and add `$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI` for all build configurations.
 
-   ![Header Search Paths](readme_assets/header_search_paths.png)
+   ![Header Search Paths](https://github.com/wfleming/WFinstagramAPI/raw/master/readme_assets/header_search_paths.png)
 5. In your prefix header, or in particular files where you wish to use WFInstagramAPI, add `#import "WFInstagramAPI.h"`
 
 ## Beginning to use the library
@@ -47,7 +47,9 @@ Once you've got your basic client info set up & a user authenticated, you're fin
 
 ## Further Details
 
-The example project attempts to demonstrate usage of most aspects of the API, and is useful as a reference. The project's header files, particularly under the **Models** group, are the best reference to available methods and to understand how to interact with available data.
+The example project attempts to demonstrate usage of most aspects of the API, and is useful as a reference. Note that the example project has its own `README`, which you should read, as it requires some of its own setup to use.
+
+The project's header files, particularly under the **Models** group, are the best reference to available methods and to understand how to interact with available data.
 
 ## Extension Points
 
