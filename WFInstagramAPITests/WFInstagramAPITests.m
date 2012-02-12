@@ -177,5 +177,23 @@
   [connStub cancelStubs];
 }
 
+- (void) testPreAuthenticateUserState {
+  __block int enterAuthFlowCalls = 0;
+  StaticStub *apiStub = [StaticStub stubForClass:[WFInstagramAPI class]];
+  [[[apiStub stub] andExecute:(StubBlock)^(id selfObj) {
+    enterAuthFlowCalls++;
+  }] enterAuthFlow];
+  
+  [WFInstagramAPI setAccessToken:nil];
+  [StubNSURLConnection stopStubbing];
+  
+  WFIGUser *user = [WFInstagramAPI currentUser];
+  STAssertNil(user, @"user should be nil");
+  
+  [WFInstagramAPI authenticateUser];
+  
+  STAssertEquals(1, enterAuthFlowCalls, @"enterAuthFlow should have been called once");
+}
+
 
 @end

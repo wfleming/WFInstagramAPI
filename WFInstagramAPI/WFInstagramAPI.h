@@ -98,11 +98,13 @@ typedef void (^WFInstagramAPIErrorHandler)(WFIGResponse*);
 + (WFIGResponse *)delete:(NSString*)path;
 
 /**
+ * Retrieve the currently authenticated user.
+ * Returns nil if no valid auth data is available.
  */
 + (WFIGUser*)currentUser;
 
 /**
- * enter the OAuth flow if needed
+ * enter the OAuth flow if needed, otherwise do nothing
  */
 + (void) authenticateUser;
 
