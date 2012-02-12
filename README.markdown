@@ -64,7 +64,7 @@ The example project attempts to demonstrate usage of most aspects of the API, an
 
 The project's header files, particularly under the **Models** group, are the best reference to available methods and to understand how to interact with available data.
 
-### Extension Points
+### Extension/Customization Points
 
 There are a few extension points the library provides to better alter core parts the library provides for you.
 
@@ -78,7 +78,7 @@ You can set a custom UIView class to be show when the user is prompted to authen
 
 #### Custom JSON serializer
 
-You can set a different class to use for JSON serialization using `+[WFIGInstagram setSerializer:]`. The class you set must implement the `WFIGSerializer` protocol. This repository actually contains files for one non-standard & currently non-compiled serializer: `WFIGCJSONSerializer`, which uses the [TouchJSON](https://github.com/TouchCode/TouchJSON). TouchJSON is *significantly* faster than Apple's built in `NSJSONSerialization`, so copying these files to your project, including `TouchJSON`, and using this serializer instead is encouraged.
+You can set a different class to use for JSON serialization using `+[WFIGInstagram setSerializer:]`. The class you set must implement the `WFIGSerializer` protocol. This repository actually contains files for one non-standard & currently non-compiled serializer: `WFIGCJSONSerializer`, which uses [TouchJSON](https://github.com/TouchCode/TouchJSON). TouchJSON is *significantly* faster than Apple's built in `NSJSONSerialization`, so copying these files to your project, including `TouchJSON`, and using this serializer instead is encouraged.
 
 ## Contributing
 
