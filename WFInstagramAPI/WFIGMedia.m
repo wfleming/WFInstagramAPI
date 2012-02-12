@@ -6,10 +6,12 @@
 
 #import "WFIGMedia.h"
 
+#import "WFInstagramAPI.h"
 #import "WFIGFunctions.h"
 #import "WFIGImageCache.h"
 #import "WFIGUser.h"
 #import "WFIGComment.h"
+#import "WFIGResponse.h"
 
 @implementation WFIGMedia {
   NSMutableArray *_comments;
@@ -17,6 +19,26 @@
 
 @synthesize instagramId, imageURL, thumbnailURL, lowResolutionURL, instagramURL,
   createdTime, caption, commentsData, tags, userData, locationData;
+
+#pragma mark - class methods
+
++ (WFIGMediaCollection*) popularMediaWithError:(NSError* __autoreleasing*)error {
+  WFIGMediaCollection *media = nil;
+  WFIGResponse *response = [WFInstagramAPI get:@"/media/popular"];
+  if ([response isSuccess]) {
+    media = [[WFIGMediaCollection alloc] initWithJSON:[response parsedBody]];
+  } else {
+    if (error) {
+      *error = [response error];
+    }
+    WFIGDLOG(@"response error: %@", [response error]);
+    WFIGDLOG(@"response body: %@", [response parsedBody]);
+  }
+  
+  return media;
+}
+
+#pragma mark - instance methods
 
 - (id) init {
   if ((self = [super init])) {
@@ -42,7 +64,7 @@
     id captionInfo = [json objectForKey:@"caption"];
     if ([captionInfo isKindOfClass:[NSDictionary class]]) {
       self.caption = [(NSDictionary*)captionInfo objectForKey:@"text"];
-    } else {
+    } else if (![[NSNull null] isEqual:captionInfo]){
       self.caption = captionInfo;
     }
     

@@ -8,5 +8,8 @@
 
 @interface WFIGMediaCollectionTest : WFIGTestCase
 
+// fixture(-esque) data
++ (NSString*) pageOneJSON;
++ (NSString*) pageTwoJSON;
 
 @end

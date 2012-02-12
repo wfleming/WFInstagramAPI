@@ -28,4 +28,6 @@
 
 - (WFIGMediaCollection*) recentMediaWithError:(NSError* __autoreleasing*)error;
 
+- (WFIGMediaCollection*) feedMediaWithError:(NSError* __autoreleasing*)error;
+
 @end

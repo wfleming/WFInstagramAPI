@@ -6,6 +6,8 @@
 
 #import "WFIGMediaTest.h"
 
+#import "WFIGMediaCollectionTest.h"
+
 @implementation WFIGMediaTest
 
 #pragma mark - utility methods
@@ -86,6 +88,16 @@
   WFIGMedia *media = [[WFIGMedia alloc] initWithJSONFragment:json];
   
   STAssertEqualObjects(@"instagram://media?id=12345", [media iOSURL], @"iOS URL should get generated");
+}
+
+- (void) testPopularMedia {
+  [StubNSURLConnection stubResponse:200
+                               body:[WFIGMediaCollectionTest pageOneJSON]
+                             forURL:@"https://api.instagram.com/v1/media/popular?access_token=testAccessToken"];
+  
+  WFIGMediaCollection *photos = [WFIGMedia popularMediaWithError:NULL];
+  STAssertTrue(([photos isKindOfClass:[WFIGMediaCollection class]]), nil);
+  STAssertEquals((NSUInteger)2, [photos count], nil);
 }
 
 @end

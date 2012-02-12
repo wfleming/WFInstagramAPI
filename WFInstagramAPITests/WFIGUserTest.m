@@ -8,6 +8,8 @@
 
 #import "WFIGUserTest.h"
 
+#import "WFIGMediaCollectionTest.h"
+
 @implementation WFIGUserTest
 
 #pragma mark - utility methods
@@ -785,7 +787,7 @@
   NSError *err = nil;
   WFIGMediaCollection *photos = [user recentMediaWithError:&err];
 
-  STAssertNil(err, @"err should have been nil, but was %@", err);
+  STAssertNil(err, nil);
   STAssertTrue([photos isKindOfClass:[WFIGMediaCollection class]], @"photos should be a media collection, but was: %@", photos);
   STAssertEquals((NSUInteger)10, [photos count], @"count was %d, was expected to be 10", [photos count]);
   STAssertFalse([photos hasNextPage], @"should not have a next page");
@@ -797,6 +799,16 @@
   media = [photos objectAtIndex:([photos count] - 1)];
   STAssertTrue([media isKindOfClass:[WFIGMedia class]], @"last media should be a media, but was: %@", media);
   STAssertEqualObjects(@"185913787_980428", media.instagramId, @"last media id is %@", media.instagramId);
+}
+
+- (void) testFeedMedia {
+  [StubNSURLConnection stubResponse:200
+                               body:[WFIGMediaCollectionTest pageOneJSON]
+                             forURL:@"https://api.instagram.com/v1/users/self/feed?access_token=testAccessToken"];
+  
+  WFIGMediaCollection *photos = [[WFInstagramAPI currentUser] feedMediaWithError:NULL];
+  STAssertTrue(([photos isKindOfClass:[WFIGMediaCollection class]]), nil);
+  STAssertEquals((NSUInteger)2, [photos count], nil);
 }
 
 

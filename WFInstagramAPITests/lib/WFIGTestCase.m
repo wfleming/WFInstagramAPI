@@ -50,7 +50,7 @@ extern WFIGUser *g_instagramCurrentUser;
   [StubNSURLConnection stopStubbing];
   
   // state that should be reset after all tests
-  [WFInstagramAPI setGlobalErrorHandler:nil];
+  [WFIGConnection setGlobalErrorHandler:nil];
   [WFInstagramAPI setClientScope:nil];
   g_instagramCurrentUser = nil;
 }

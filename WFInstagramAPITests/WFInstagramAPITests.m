@@ -30,7 +30,7 @@
 
 - (void) testGlobalErrorHandler {
   __block int blockCalled = 0;
-  [WFInstagramAPI setGlobalErrorHandler:^(WFIGResponse* response) {
+  [WFIGConnection setGlobalErrorHandler:^(WFIGResponse* response) {
     blockCalled++;
   }];
   

@@ -12,7 +12,7 @@
   WFIGMediaCollection *_collection;
 }
 
-- (NSString*) firstPageJSON {
++ (NSString*) pageOneJSON {
   return @"{"
   "  \"pagination\":  {"
   "    \"next_url\": \"https://api.instagram.com/v1/users/980428/media/recent?access_token=testToken&count=2&max_id=387778587_980428\","
@@ -157,7 +157,7 @@
   "}";
 }
 
-- (NSString*) pageTwoJSON {
++ (NSString*) pageTwoJSON {
   return @"{"
   "  \"pagination\":  {"
   "    \"next_url\": \"https://api.instagram.com/v1/users/980428/media/recent?access_token=testToken&count=2&max_id=370467686_980428\","
@@ -319,7 +319,7 @@
 - (void) setUp {
   [super setUp];
   NSDictionary *firstPage = [WFIGDefaultSerializer
-                             deserializeJSON:[[self firstPageJSON] dataUsingEncoding:NSUTF8StringEncoding]
+                             deserializeJSON:[[[self class] pageOneJSON] dataUsingEncoding:NSUTF8StringEncoding]
                              error:NULL];
   _collection = [[WFIGMediaCollection alloc] initWithJSON:firstPage];
 }
@@ -333,7 +333,7 @@
 
 - (void) testPaging {
   NSString *firstNextPageURL = _collection.nextPageURL;
-  [StubNSURLConnection stubResponse:200 body:[self pageTwoJSON] forURL:firstNextPageURL];
+  [StubNSURLConnection stubResponse:200 body:[[self class] pageTwoJSON] forURL:firstNextPageURL];
   BOOL success = [_collection loadAndMergeNextPageWithError:NULL];
   STAssertTrue(success, @"-loadAndMergeNextPageWithError should have succeeded");
   

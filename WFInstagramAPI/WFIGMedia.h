@@ -6,7 +6,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class WFIGMedia, WFIGUser;  // for the block typedef & -user return val
+@class WFIGMedia, WFIGUser, WFIGMediaCollection;
 
 typedef void (^WFIGMediaImageCallback)(WFIGMedia *media, UIImage *image);
 
@@ -24,6 +24,8 @@ typedef void (^WFIGMediaImageCallback)(WFIGMedia *media, UIImage *image);
 @property (strong, nonatomic) NSMutableArray *tags; // array of strings
 @property (strong, nonatomic) NSDictionary *userData;
 @property (strong, nonatomic) NSDictionary *locationData;
+
++ (WFIGMediaCollection*) popularMediaWithError:(NSError* __autoreleasing*)error;
 
 - (id) initWithJSONFragment:(NSDictionary*)json;
 

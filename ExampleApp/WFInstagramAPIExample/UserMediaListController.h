@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserMediaListController : UITableViewController
+#import "BaseMediaListController.h"
 
-@property (strong, atomic) WFIGMediaCollection *mediaCollection;
+@interface UserMediaListController : BaseMediaListController
 
 /**
  * initialize the controller with the user to show the photos of.

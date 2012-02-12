@@ -13,6 +13,7 @@
 
 @interface WFIGUser (Private)
 - (NSString*) effectiveApiId;
++ (WFIGMediaCollection*) getMedia:(NSString*)endpoint error:(NSError* __autoreleasing*)error;
 @end
 
 #pragma mark -
@@ -57,8 +58,27 @@
 }
 
 - (WFIGMediaCollection*) recentMediaWithError:(NSError* __autoreleasing*)error; {
+  NSString *endpoint = [NSString stringWithFormat:@"/users/%@/media/recent", [self effectiveApiId]];
+  return [WFIGUser getMedia:endpoint error:error];
+}
+
+- (WFIGMediaCollection*) feedMediaWithError:(NSError* __autoreleasing*)error {
+  return [WFIGUser getMedia:@"/users/self/feed" error:error];
+}
+
+@end
+
+
+#pragma mark -
+@implementation WFIGUser (Private)
+
+- (NSString*) effectiveApiId {
+  return (_isCurrentUser ? @"self" : self.instagramId);
+}
+
++ (WFIGMediaCollection*) getMedia:(NSString*)endpoint error:(NSError* __autoreleasing*)error {
   WFIGMediaCollection *media = nil;
-  WFIGResponse *response = [WFInstagramAPI get:[NSString stringWithFormat:@"/users/%@/media/recent", [self effectiveApiId]]];
+  WFIGResponse *response = [WFInstagramAPI get:endpoint];
   if ([response isSuccess]) {
     media = [[WFIGMediaCollection alloc] initWithJSON:[response parsedBody]];
   } else {
@@ -71,12 +91,5 @@
   
   return media;
 }
-@end
 
-
-#pragma mark -
-@implementation WFIGUser (Private)
-- (NSString*) effectiveApiId {
-  return (_isCurrentUser ? @"self" : self.instagramId);
-}
 @end

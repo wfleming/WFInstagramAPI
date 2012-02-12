@@ -19,6 +19,9 @@
 		BE30E21A14D4855700232F8F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE30E21914D4855700232F8F /* AppDelegate.m */; };
 		BE30E21D14D4855700232F8F /* UserMediaListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE30E21C14D4855700232F8F /* UserMediaListController.m */; };
 		BE30E25314D4861600232F8F /* libWFInstagramAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE30E24414D485ED00232F8F /* libWFInstagramAPI.a */; };
+		BE45C68F14E774CC00F8DD20 /* BaseMediaListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45C68E14E774CC00F8DD20 /* BaseMediaListController.m */; };
+		BE45C69214E7775B00F8DD20 /* UserFeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45C69114E7775B00F8DD20 /* UserFeedController.m */; };
+		BE45C69514E7777300F8DD20 /* PopularMediaController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45C69414E7777300F8DD20 /* PopularMediaController.m */; };
 		BEAD136D14DD8FDA00FED356 /* APIClient.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEAD136C14DD8FDA00FED356 /* APIClient.plist */; };
 		BEAD137114DDAAB800FED356 /* NSURL+WillFleming.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAD137014DDA6B200FED356 /* NSURL+WillFleming.m */; };
 		BEAD137414DF1AAB00FED356 /* MediaListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAD137314DF1AAB00FED356 /* MediaListCell.m */; };
@@ -62,6 +65,12 @@
 		BE30E21B14D4855700232F8F /* UserMediaListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserMediaListController.h; sourceTree = "<group>"; };
 		BE30E21C14D4855700232F8F /* UserMediaListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserMediaListController.m; sourceTree = "<group>"; };
 		BE30E23E14D485ED00232F8F /* WFInstagramAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WFInstagramAPI.xcodeproj; path = ../WFInstagramAPI.xcodeproj; sourceTree = "<group>"; };
+		BE45C68D14E774CC00F8DD20 /* BaseMediaListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMediaListController.h; sourceTree = "<group>"; };
+		BE45C68E14E774CC00F8DD20 /* BaseMediaListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMediaListController.m; sourceTree = "<group>"; };
+		BE45C69014E7775B00F8DD20 /* UserFeedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFeedController.h; sourceTree = "<group>"; };
+		BE45C69114E7775B00F8DD20 /* UserFeedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFeedController.m; sourceTree = "<group>"; };
+		BE45C69314E7777300F8DD20 /* PopularMediaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularMediaController.h; sourceTree = "<group>"; };
+		BE45C69414E7777300F8DD20 /* PopularMediaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularMediaController.m; sourceTree = "<group>"; };
 		BEAD136C14DD8FDA00FED356 /* APIClient.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIClient.plist; sourceTree = "<group>"; };
 		BEAD136F14DDA6B200FED356 /* NSURL+WillFleming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURL+WillFleming.h"; sourceTree = "<group>"; };
 		BEAD137014DDA6B200FED356 /* NSURL+WillFleming.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+WillFleming.m"; sourceTree = "<group>"; };
@@ -95,15 +104,21 @@
 			name = "Media Detail";
 			sourceTree = "<group>";
 		};
-		BE13844914E4BF6300C6F915 /* User Media List */ = {
+		BE13844914E4BF6300C6F915 /* Media Lists */ = {
 			isa = PBXGroup;
 			children = (
-				BE30E21B14D4855700232F8F /* UserMediaListController.h */,
-				BE30E21C14D4855700232F8F /* UserMediaListController.m */,
+				BE45C68D14E774CC00F8DD20 /* BaseMediaListController.h */,
+				BE45C68E14E774CC00F8DD20 /* BaseMediaListController.m */,
 				BEAD137214DF1AAB00FED356 /* MediaListCell.h */,
 				BEAD137314DF1AAB00FED356 /* MediaListCell.m */,
+				BE30E21B14D4855700232F8F /* UserMediaListController.h */,
+				BE30E21C14D4855700232F8F /* UserMediaListController.m */,
+				BE45C69014E7775B00F8DD20 /* UserFeedController.h */,
+				BE45C69114E7775B00F8DD20 /* UserFeedController.m */,
+				BE45C69314E7777300F8DD20 /* PopularMediaController.h */,
+				BE45C69414E7777300F8DD20 /* PopularMediaController.m */,
 			);
-			name = "User Media List";
+			name = "Media Lists";
 			sourceTree = "<group>";
 		};
 		BE13847714E5C26C00C6F915 /* New Comment */ = {
@@ -149,7 +164,7 @@
 			children = (
 				BE30E21814D4855700232F8F /* AppDelegate.h */,
 				BE30E21914D4855700232F8F /* AppDelegate.m */,
-				BE13844914E4BF6300C6F915 /* User Media List */,
+				BE13844914E4BF6300C6F915 /* Media Lists */,
 				BE13844814E4BF3400C6F915 /* Media Detail */,
 				BE13847714E5C26C00C6F915 /* New Comment */,
 				BEAD136E14DDA68F00FED356 /* lib */,
@@ -282,6 +297,9 @@
 				BE13844C14E4BF9300C6F915 /* MediaDetailController.m in Sources */,
 				BE13844F14E4C0C600C6F915 /* MediaImageCell.m in Sources */,
 				BE29466314E5C334007EF730 /* NewCommentController.m in Sources */,
+				BE45C68F14E774CC00F8DD20 /* BaseMediaListController.m in Sources */,
+				BE45C69214E7775B00F8DD20 /* UserFeedController.m in Sources */,
+				BE45C69514E7777300F8DD20 /* PopularMediaController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
