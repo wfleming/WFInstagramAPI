@@ -81,4 +81,11 @@
   STAssertEqualObjects(expectedCaption, media.caption, @"wrong caption");
 }
 
+- (void) testIOSURL {
+  NSDictionary *json = [self basicJSON];
+  WFIGMedia *media = [[WFIGMedia alloc] initWithJSONFragment:json];
+  
+  STAssertEqualObjects(@"instagram://media?id=12345", [media iOSURL], @"iOS URL should get generated");
+}
+
 @end

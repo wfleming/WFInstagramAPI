@@ -225,8 +225,6 @@ WFInstagramAPIErrorHandler g_errorHandler = nil;
 @end
 
 
-
-
 #pragma mark -
 @implementation WFInstagramAPI (Private)
 + (NSString*) urlForPath:(NSString*)path {

@@ -20,6 +20,7 @@ extern WFIGUser *g_instagramCurrentUser;
   [WFInstagramAPI setClientId:@"testClientId"];
   [WFInstagramAPI setClientSecret:@"testClientSecret"];
   [WFInstagramAPI setAccessToken:@"testAccessToken"];
+  [WFInstagramAPI setOAuthRedirectURL:@"testRedirectURL"];
   
   [StubNSURLConnection beginStubbing];
   
@@ -50,6 +51,7 @@ extern WFIGUser *g_instagramCurrentUser;
   
   // state that should be reset after all tests
   [WFInstagramAPI setGlobalErrorHandler:nil];
+  [WFInstagramAPI setClientScope:nil];
   g_instagramCurrentUser = nil;
 }
 
