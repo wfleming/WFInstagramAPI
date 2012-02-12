@@ -6,20 +6,27 @@ WFInstagramAPI is an Objective-C iOS library for interacting with [Instagram's A
 
 ### Linking WFInstagramAPI to your project
 
-1. Clone the project locally
-2. Drag WFInstagramAPI.xcodeproj to your project's **Frameworks group**.
-
-   ![Your Frameworks Group](https://github.com/wfleming/WFinstagramAPI/raw/master/readme_assets/add_to_frameworks.png)
+<ol>
+ <li><p>Clone the project locally</p></li>
+ <li>
+   <p>Drag WFInstagramAPI.xcodeproj to your project's <strong>Frameworks group</strong>.</p>
    
-3. Open your project's settings, to the **Build Phases** tab, open the **Link Binary With Libraries** section, Click the **+** button, and add **libWFInstagramAPI.a**
+   <p><img src="https://github.com/wfleming/WFinstagramAPI/raw/master/readme_assets/add_to_frameworks.png" alt="Your Frameworks Group" /></p>
+  </li>
+  <li>
+    <p>Open your project's settings, to the <strong>Build Phases</strong> tab, open the <strong>Link Binary With Libraries</strong> section, Click the <strong>+</strong> button, and add <strong>libWFInstagramAPI.a</strong>.</p>
 
-   ![Project Dependencies](https://github.com/wfleming/WFinstagramAPI/raw/master/readme_assets/add_dependency.png)
-   
-4. Go to the **Build Settings** tab, find the **Header Search Paths** setting, and add `$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI` for all build configurations.
+    <p><img src="https://github.com/wfleming/WFinstagramAPI/raw/master/readme_assets/add_dependency.png" alt="Project Dependencies" /></p>
+  </li>
+  <li>
+    <p>Go to the <strong>Build Settings</strong> tab, find the <strong>Header Search Paths</strong> setting, and add <code>$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI</code> for all build configurations.</p>
 
-   ![Header Search Paths](https://github.com/wfleming/WFinstagramAPI/raw/master/readme_assets/header_search_paths.png)
-   
-5. In your prefix header, or in particular files where you wish to use WFInstagramAPI, add `#import "WFInstagramAPI.h"`
+    <p><img src="https://github.com/wfleming/WFinstagramAPI/raw/master/readme_assets/header_search_paths.png" alt="Header Search Paths" /></p>
+  </li>
+  <li>
+    <p>In your prefix header, or in particular files where you wish to use WFInstagramAPI, add <code>#import "WFInstagramAPI.h"</code></p>
+  </li>
+</ol>
 
 
 ### Beginning to use the library
