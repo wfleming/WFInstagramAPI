@@ -92,12 +92,12 @@
   return self;
 }
 
-- (StaticStub*) andReturn:(id)anObject {
+- (id) andReturn:(id)anObject {
   self.currentReturnVal = anObject;
   return self;
 }
 
-- (StaticStub*) andDo:(StubBlock)aBlock {
+- (id) andExecute:(StubBlock)aBlock {
   self.currentReturnBlock = aBlock;
   return self;
 }

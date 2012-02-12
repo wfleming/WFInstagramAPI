@@ -6,6 +6,9 @@
 
 #import "WFInstagramAPITests.h"
 
+#import <objc/runtime.h>
+#import <objc/message.h>
+
 @implementation WFInstagramAPITests
 
 // less a test of InstagramAPI, and more a sanity check on my StaticStub
@@ -134,7 +137,45 @@
   STAssertEqualObjects(@"foo", [response bodyAsString], @"body should be as expected");
 }
 
-//- (void) 
+- (void) testHttpPutAndPostConvenienceFormEncoding {
+  NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"val1", @"key1",
+                          @"val2", @"key2",
+                          @"val+3", @"key3",
+                          nil];
+  
+  StaticStub *connStub = [StaticStub stubForClass:[WFIGConnection class]];
+  __block NSString *expectedRequestMethod = nil;
+  [[[connStub stub] andExecute:(StubBlock)^(id selfObj, NSMutableURLRequest *request) {
+    STAssertEqualObjects(expectedRequestMethod, [request HTTPMethod], @"wrong request method");
+    STAssertEqualObjects(@"application/x-www-form-urlencoded",
+                         [request valueForHTTPHeaderField:@"Content-Type"],
+                         @"wrong Content-Type header");
+    
+    // test the body encoding - same technique as -[WFIGFunctionsTest testFormEncodeBodyOnRequest]
+    NSArray *expectedBodyChunks = [[NSArray arrayWithObjects:@"key1=val1",
+                                    @"key2=val2",
+                                    @"key3=val%2B3",
+                                    @"", //because of trailing &
+                                    @"access_token=testAccessToken", // pushed in by -[WFInstagramAPI post:/put: to:]
+                                    nil] sortedArrayUsingSelector:@selector(compare:)];
+    NSString *body = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
+    NSArray *bodyChunks = [[body componentsSeparatedByString:@"&"] sortedArrayUsingSelector:@selector(compare:)];
+    STAssertEqualObjects(expectedBodyChunks, bodyChunks, @"expected: %@, got: %@", expectedBodyChunks, bodyChunks);
+    
+    return nil;
+  }] sendRequest:[OCMArg any]];
+  
+  // test POST
+  expectedRequestMethod = @"POST";
+  [WFInstagramAPI post:params to:@"/endpoint/path"];
+  
+  // test PUT
+  expectedRequestMethod = @"PUT";
+  [WFInstagramAPI put:params to:@"/endpoint/path"];
+  
+  [connStub cancelStubs];
+}
 
 
 @end

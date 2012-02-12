@@ -48,6 +48,7 @@
   NSURL *url = [NSURL URLWithString:@"http://foo.bar/path"];
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
   
+  // dictionary enumeration doesn't guarantee order, so we test body encoding this way
   NSArray *expectedBodyChunks = [[NSArray arrayWithObjects:@"key1=val1",
                                    @"key2=val2",
                                    @"key3=val%2B3",
