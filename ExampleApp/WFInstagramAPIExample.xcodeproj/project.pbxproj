@@ -349,14 +349,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WFInstagramAPIExample/WFInstagramAPIExample-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)/../../WFInstagramAPI",
-					"$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI",
-				);
+				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI";
 				INFOPLIST_FILE = "WFInstagramAPIExample/WFInstagramAPIExample-Info.plist";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -366,14 +363,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WFInstagramAPIExample/WFInstagramAPIExample-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)/../../WFInstagramAPI",
-					"$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI",
-				);
+				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI";
 				INFOPLIST_FILE = "WFInstagramAPIExample/WFInstagramAPIExample-Info.plist";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
