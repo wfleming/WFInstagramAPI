@@ -1,6 +1,9 @@
 //
 //  WFIGConnectionDelegate.h
 //
+//  Based off of ObjectiveResource's ConnectionDelegate:
+//  https://github.com/yfactorial/objectiveresource
+//
 //  Created by William Fleming on 11/14/11.
 //
 

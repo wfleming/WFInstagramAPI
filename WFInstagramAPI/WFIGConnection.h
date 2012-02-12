@@ -1,6 +1,9 @@
 //
 //  WFIGConnection.h
 //
+//  Based off of ObjectiveResource's Connection:
+//  https://github.com/yfactorial/objectiveresource
+//
 //  Created by William Fleming on 11/14/11.
 //
 

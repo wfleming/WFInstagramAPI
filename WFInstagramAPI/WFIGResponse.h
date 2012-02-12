@@ -1,6 +1,9 @@
 //
 //  WFIGResponse.h
 //
+//  Based off of ObjectiveResource's Response:
+//  https://github.com/yfactorial/objectiveresource
+//
 //  Created by William Fleming on 11/14/11.
 //
 
